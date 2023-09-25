@@ -24,10 +24,16 @@ function tramp(data)
 	player:setVelocity(0, 3, 0);
 end
 
+function tramp2(data)
+	local player = Player:new(data.player);
+	player:setVelocity(0, 10, 0);
+end
+
 registerHook("REGION_ENTER", "tramp", "survival3-tramp1");
 registerHook("REGION_ENTER", "tramp", "survival3-tramp2");
 registerHook("REGION_ENTER", "tramp", "survival3-tramp3");
 registerHook("REGION_ENTER", "tramp", "survival3-tramp4");
+registerHook("REGION_ENTER", "tramp2", "survival3-tramp5");
 
 ----------------------------------
 ---------max----------------------
