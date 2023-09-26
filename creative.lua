@@ -1,6 +1,6 @@
 local myWorld4 = World:new('creative');
 
---------
+---------
 ---AI---
 ---------
 
