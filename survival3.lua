@@ -5,8 +5,8 @@ local survivalsound = Location:new(myWorld3, 0, 0, 0);
 ---AI---
 --------
 
-local mut = '&3[?] &bDOG&f: A Player has purchased daytime. Praise the sun!'
-local mut2 = '&3[?] &bDOG&f: A Player has purchased nighttime. Praise the moon!'
+local mut = '&3[?] &bDOG&f: A player has purchased daytime. Praise the sun!'
+local mut2 = '&3[?] &bDOG&f: A player has purchased nighttime. Praise the moon!'
 local mut3 = '&3[?] &bDOG&f: May you have mercy on their soul.'
 local Message = ''
 
