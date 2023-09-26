@@ -1,4 +1,6 @@
 local myWorld3 = World:new('survival3');
+local myWorld2 = World:new('spawn2');
+local myWorld4 = World:new('creative');
 local survivalsound = Location:new(myWorld3, 0, 0, 0);
 
 --------
@@ -16,8 +18,12 @@ function s3_broadcast(msg)
 	myWorld3:broadcast(msg);
 end
 
-function s3_broadcast_npc(npc, msg)
-	a_broadcast('&f&c' .. npc .. '&6: &f' .. msg);
+function s3_broadcast2(msg)
+	myWorld2:broadcast(msg);
+end
+
+function s3_broadcast3(msg)
+	myWorld4:broadcast(msg);
 end
 
 function s3_whisper_npc(npc, msg, player)
@@ -43,6 +49,8 @@ function dog_smite(data)
                 if hasPrefix(message, "dog smite me") then
 		local playerName = splitPlayerName(message, 16);
 	        s3_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+		s3_broadcast2(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                s3_broadcast3(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		survivalsound:playSound('AMBIENCE_THUNDER', 100, 1);
 		
 end
