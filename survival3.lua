@@ -4,9 +4,10 @@ local myWorld3 = World:new('survival3');
 ---AI---
 --------
 
-local mut = '&9[?] &bDOG &fA Plaer has purchased daytime. Praise the sun!'
-local mut2 = '&9[?] &bDOG &fA Plaer has purchased nighttime. Praise the moon!'
+local mut = '&9[?] &bDOG&f: A Player has purchased daytime. Praise the sun!'
+local mut2 = '&9[?] &bDOG&f: A Player has purchased nighttime. Praise the moon!'
 local Message = ''
+
 
 
 function s3_broadcast(msg)
