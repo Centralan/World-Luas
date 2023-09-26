@@ -44,7 +44,7 @@ function dog_smite(data)
 	        s3_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		local myWorld3, x, y, z = player:getLocation();
 		local playerLoc = Location:new(world, x, y, z);
-		playerLoc:strikeLightning;
+		strikeLightning(playerLoc);
 	
 end
 
