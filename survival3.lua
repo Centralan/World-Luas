@@ -11,7 +11,7 @@ local creativesound = Location:new(myWorld4, 0, 0, 0);
 local mut = '&3[?] &bDOG&f: A player has purchased daytime. Praise the sun!'
 local mut2 = '&3[?] &bDOG&f: A player has purchased nighttime. Praise the moon!'
 local mut3 = '&3[?] &bDOG&f: May you have mercy on their soul.'
-local mut7 = '&3[?] &bDOG&f: &erolls over'
+local mut8 = '&3[?] &bDOG&f: &erolls over'
 local Message = ''
 
 
@@ -63,9 +63,9 @@ function dog_whine(data)
                 local message = data.message;
                 if hasPrefix(message, "pets dog") then
                 local playerName = splitPlayerName(message, 16);
-                c_broadcast(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                c_broadcast2(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                c_broadcast3(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                s3_broadcast(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                s3_broadcast2(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                s3_broadcast3(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
                 creativesound:playSound('WOLF_WHINE', 100, 1);
                 survivalsound:playSound('WOLF_WHINE', 100, 1);
 
