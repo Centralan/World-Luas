@@ -58,6 +58,7 @@ function dog_smite(data)
 end
 
 registerHook("CHAT_MESSAGE", "dog_smite", "survival3");
+registerHook("CHAT_MESSAGE", "dog_smite", "creative");
 	
 ------------------------------------
 ------------spawn-------------------
