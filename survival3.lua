@@ -7,7 +7,7 @@ local survivalsound = Location:new(myWorld3, 0, 0, 0);
 
 local mut = '&3[?] &bDOG&f: A Player has purchased daytime. Praise the sun!'
 local mut2 = '&3[?] &bDOG&f: A Player has purchased nighttime. Praise the moon!'
-local mut3 = '&3[?] &bDOG&f: Get smited peasant!'
+local mut3 = '&3[?] &bDOG&f: May you have mercy on their soul.'
 local Message = ''
 
 
@@ -43,7 +43,7 @@ function dog_smite(data)
                 if hasPrefix(message, "dog smite me") then
 		local playerName = splitPlayerName(message, 16);
 	        s3_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		survivalsound:playSound('AMBIENCE_THUNDER', 100, 0);
+		survivalsound:playSound('AMBIENCE_THUNDER', 100, 1);
 		
 end
 
