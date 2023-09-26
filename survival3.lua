@@ -42,7 +42,7 @@ function dog_smite(data)
                 if hasPrefix(message, "dog smite me") then
 		local playerName = splitPlayerName(message, 16);
 	        s3_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-	        strikeLightning(player, ~, ~, ~);
+	
 end
 
 registerHook("CHAT_MESSAGE", "dog_smite", "survival3");
