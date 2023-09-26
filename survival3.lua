@@ -95,14 +95,14 @@ function daytimeButtonClick(data)
 	local player = Player:new(data.player);
 		player:sendMessage("§aIt's now daytime!");
 	        s3_broadcast(mut, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		myworld3:setTime(600);
+		myWorld3:setTime(600);
 end
 
 function nighttimeButtonClick(data)
 	local player = Player:new(data.player);
 		player:sendMessage("§aIt's now nighttime!");
 		s3_broadcast(mut2, "§6" .. player.name .. " has purchased nighttime. Praise the moon!");
-		myworld3:setTime(1800);
+		myWorld3:setTime(1800);
 end
 
 function time_enter(data)
