@@ -1,8 +1,8 @@
+local myWorld3 = World:new('survival3');
+
 --------
 ---AI---
 --------
-
-local myWorld3 = World:new('survival3');
 
 local mut = '[&bDOG]'
 local Message = ''
@@ -22,8 +22,6 @@ end
 ------------------------------------
 ------------spawn-------------------
 ------------------------------------
-
-local myWorld3 = World:new('survival3');
 
 function lobby_easter_room(data)
           local p = Player:new(data["player"]);
