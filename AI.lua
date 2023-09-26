@@ -48,10 +48,10 @@ function dog_smite(data)
          if hasPrefix(message, "dog smite") then
 		    local playerName = splitPlayerName(message, 16);
 	            survival_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		          spawn2_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-              creative_broadcast3(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		          survivalsound:playSound('AMBIENCE_THUNDER', 100, 1);
-		          creativesound:playSound('AMBIENCE_THUNDER', 100, 1);
+	            spawn2_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                    creative_broadcast3(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+		    survivalsound:playSound('AMBIENCE_THUNDER', 100, 1);
+		    creativesound:playSound('AMBIENCE_THUNDER', 100, 1);
 	end
 end
 	
@@ -78,14 +78,22 @@ registerHook("CHAT_MESSAGE", "dog_smite", "creative");
 -----cat-----------
 -------------------
 
+local function hasPrefix(subject, prefix)
+	return string.sub(subject, 1, string.len(prefix)) == prefix;
+end
+
+local function splitPlayerName(message, len)
+	return string.sub(message, len, string.len(message));
+end
+
   function cat_meow(data)
          local player = Player:new(data.player);
                 local message = data.message;
                 if hasPrefix(message, "cat hi") then
                 local playerName = splitPlayerName(message, 16);
-                c_broadcast(mut6, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                c_broadcast(mut6, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                c_broadcast(mut6, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                survival_broadcast(mut6, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                creative_broadcast(mut6, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                spawn2_broadcast(mut6, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
                 creativesound:playSound('CAT_MEOW', 100, 1);
                 survivalsound:playSound('CAT_MEOW', 100, 1);
 
