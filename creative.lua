@@ -40,6 +40,7 @@ function cat_day(data)
 		local message = data.message;
                 if hasPrefix(message, "cat day") then
 		local playerName = splitPlayerName(message, 16);
+		player:sendMessage("§aIt's now daytime!");
 	        c_broadcast(mut4, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		myworld4:setTime(0);
 	end
@@ -50,6 +51,7 @@ function cat_night(data)
 		local message = data.message;
                 if hasPrefix(message, "cat night") then
 		local playerName = splitPlayerName(message, 16);
+		player:sendMessage("§aIt's now nighttime!");
 	        c_broadcast(mut5, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		myworld4:setTime(14000);
 	end
