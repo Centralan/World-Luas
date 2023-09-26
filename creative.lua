@@ -4,8 +4,8 @@ local myWorld4 = World:new('creative');
 ---AI---
 --------
 
-local mut4 = '&3[?] &bDOG&f: A Player has made it day!'
-local mut5 = '&3[?] &bDOG&f: A Player has made it night'
+local mut4 = '&3[?] &bCAT&f: A player has made it day!'
+local mut5 = '&3[?] &bCAT&f: A player has made it night'
 local Message = ''
 
 
@@ -35,27 +35,25 @@ local function splitPlayerName(message, len)
 end
 
 
-function cr_day(data)
+function cat_day(data)
 	 local player = Player:new(data.player);
 		local message = data.message;
-                if hasPrefix(message, "dog day") then
+                if hasPrefix(message, "cat day") then
 		local playerName = splitPlayerName(message, 16);
-	        player:sendMessage("§aIt's now daytime!");
-	        c_broadcast(mut4, "§6" .. player.name .. " has made it day!");
-		      myworld4:setTime(0);
-	end
+	        c_broadcast(mut4, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+		myworld4:setTime(0);
+		
 end
 
-  function cr_night(data)
+function cat_night(data)
 	 local player = Player:new(data.player);
 		local message = data.message;
-                if hasPrefix(message, "dog night") then
+                if hasPrefix(message, "cat night") then
 		local playerName = splitPlayerName(message, 16);
-	        player:sendMessage("§aIt's now nighttime!");
-		      c_broadcast(mut5, "§6" .. player.name .. " has made it night!");
-		      myworld4:setTime(14000);
-	end
+	        c_broadcast(mut5, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+		myworld4:setTime(14000);
+		
 end
 
-registerHook("CHAT_MESSAGE", "cr_day", "creative");
-registerHook("CHAT_MESSAGE", "cr_night", "creative");
+registerHook("CHAT_MESSAGE", "cat_day", "creative");
+registerHook("CHAT_MESSAGE", "cat_night", "creative");
