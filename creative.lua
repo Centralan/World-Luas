@@ -1,7 +1,4 @@
-local myWorld3 = World:new('survival3');
-local myWorld2 = World:new('spawn2');
 local myWorld4 = World:new('creative');
-local survivalsound = Location:new(myWorld3, 0, 0, 0);
 local creativesound = Location:new(myWorld4, 0, 0, 0);
 
 
@@ -12,22 +9,12 @@ local creativesound = Location:new(myWorld4, 0, 0, 0);
 
 local mut4 = '&3[?] &bCAT&f: A player has made it day!'
 local mut5 = '&3[?] &bCAT&f: A player has made it night'
-local mut6 = '&3[?] &bCAT&f: meow.'
-local mut7 = '&3[?] &bCAT&f: &erolls over'
 local Message = ''
 
 
 
 function c_broadcast(msg)
 	myWorld4:broadcast(msg);
-end
-
-function c_broadcast_npc(npc, msg)
-	a_broadcast('&f&c' .. npc .. '&6: &f' .. msg);
-end
-
-function c_whisper_npc(npc, msg, player)
-	player:sendMessage('&f&c' .. npc .. '&f' .. msg);
 end
 
 ----------------------------------
