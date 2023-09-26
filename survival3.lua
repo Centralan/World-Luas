@@ -2,6 +2,7 @@ local myWorld3 = World:new('survival3');
 local myWorld2 = World:new('spawn2');
 local myWorld4 = World:new('creative');
 local survivalsound = Location:new(myWorld3, 0, 0, 0);
+local creativesound = Location:new(myWorld4, 0, 0, 0);
 
 --------
 ---AI---
@@ -52,6 +53,7 @@ function dog_smite(data)
 		s3_broadcast2(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
                 s3_broadcast3(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		survivalsound:playSound('AMBIENCE_THUNDER', 100, 1);
+		creativesound:playSound('AMBIENCE_THUNDER', 100, 1);
 		
 end
 
