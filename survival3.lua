@@ -2,11 +2,13 @@
 ---AI---
 --------
 
+local myWorld3 = World:new('survival3');
+
 local mut = '[&bDOG]'
 local Message = ''
 
 function s3_broadcast(msg)
-	myWorld:broadcast(msg);
+	myWorld3:broadcast(msg);
 end
 
 function s3_broadcast_npc(npc, msg)
@@ -21,7 +23,7 @@ end
 ------------spawn-------------------
 ------------------------------------
 
-local myWorld = World:new('survival3');
+local myWorld3 = World:new('survival3');
 
 function lobby_easter_room(data)
           local p = Player:new(data["player"]);
@@ -58,21 +60,21 @@ registerHook("REGION_ENTER", "tramp2", "survival3-tramp5");
 ---------time control----
 -----------------------------
 
-local totimeshop = Location:new(myWorld, -609.0, 56.0, -77.0);
-local exittimeshop = Location:new(myWorld, -639.0, 61.0, -65.0);
+local totimeshop = Location:new(myWorld3, -609.0, 56.0, -77.0);
+local exittimeshop = Location:new(myWorld3, -639.0, 61.0, -65.0);
 
 function daytimeButtonClick(data)
 	local player = Player:new(data.player);
 		player:sendMessage("§aIt's now daytime!");
 	        s3_broadcast(mut, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		myworld:setTime(600);
+		myworld3:setTime(600);
 end
 
 function nighttimeButtonClick(data)
 	local player = Player:new(data.player);
 		player:sendMessage("§aIt's now nighttime!");
 		s3_broadcast(mut, "§6" .. player.name .. " has purchased nighttime. Praise the moon!");
-		myworld:setTime(1800);
+		myworld3:setTime(1800);
 end
 
 function time_enter(data)
@@ -94,7 +96,7 @@ registerHook("REGION_ENTER", "time_exit", "survival3-timeshop2");
 ----------------------------------
 ---------max----------------------
 ----------------------------------
-local maxtp = Location:new(myWorld, -694.0, 169.0, -227.0);
+local maxtp = Location:new(myWorld3, -694.0, 169.0, -227.0);
 
 function max_tp(data)
         local targetplayer = Player:new(data.player);
