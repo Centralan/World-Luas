@@ -1,2 +1,2 @@
 # survival3
-Lua code used in survival3 world.
+Lua code used the runsafe worlds
