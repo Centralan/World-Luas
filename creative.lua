@@ -12,6 +12,8 @@ local creativesound = Location:new(myWorld4, 0, 0, 0);
 
 local mut4 = '&3[?] &bCAT&f: A player has made it day!'
 local mut5 = '&3[?] &bCAT&f: A player has made it night'
+local mut6 = '&3[?] &bCAT&f: meow.'
+local mut7 = '&3[?] &bCAT&f: &erolls over'
 local Message = ''
 
 
@@ -83,17 +85,31 @@ function cat_meow2(data)
                 local message = data.message;
                 if hasPrefix(message, "hi cat") then
                 local playerName = splitPlayerName(message, 16);
-                c_broadcast(mut7, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                c_broadcast2(mut7, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                c_broadcast3(mut7, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                c_broadcast(mut6, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                c_broadcast2(mut6, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                c_broadcast3(mut6, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
                 creativesound:playSound('CAT_MEOW', 100, 1);
                 survivalsound:playSound('CAT_MEOW', 100, 1);
 
         end
 end
 
+function cat_purr(data)
+         local player = Player:new(data.player);
+                local message = data.message;
+                if hasPrefix(message, "pets cat") then
+                local playerName = splitPlayerName(message, 16);
+                c_broadcast(mut7, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                c_broadcast2(mut7, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                c_broadcast3(mut7, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                creativesound:playSound('CAT_PURR', 100, 1);
+                survivalsound:playSound('CAT_PURR', 100, 1);
 
+        end
+end
 
+registerHook("CHAT_MESSAGE", "cat_purr", "creative");
+registerHook("CHAT_MESSAGE", "cat_purr", "creative");
 registerHook("CHAT_MESSAGE", "cat_day", "creative");
 registerHook("CHAT_MESSAGE", "cat_night", "creative");
 registerHook("CHAT_MESSAGE", "cat_meow", "creative");
