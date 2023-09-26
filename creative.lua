@@ -109,7 +109,7 @@ function cat_purr(data)
 end
 
 registerHook("CHAT_MESSAGE", "cat_purr", "creative");
-registerHook("CHAT_MESSAGE", "cat_purr", "creative");
+registerHook("CHAT_MESSAGE", "cat_purr", "survival3");
 registerHook("CHAT_MESSAGE", "cat_day", "creative");
 registerHook("CHAT_MESSAGE", "cat_night", "creative");
 registerHook("CHAT_MESSAGE", "cat_meow", "creative");
