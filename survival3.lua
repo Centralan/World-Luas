@@ -6,7 +6,7 @@ local myWorld3 = World:new('survival3');
 
 local mut = '&3[?] &bDOG&f: A Player has purchased daytime. Praise the sun!'
 local mut2 = '&3[?] &bDOG&f: A Player has purchased nighttime. Praise the moon!'
-local mut3 = '&3[?] &bDOG&f: Get smited peasant!
+local mut3 = '&3[?] &bDOG&f: Get smited peasant!'
 local Message = ''
 
 
@@ -42,6 +42,9 @@ function dog_smite(data)
                 if hasPrefix(message, "dog smite me") then
 		local playerName = splitPlayerName(message, 16);
 	        s3_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+		local myWorld3, x, y, z = player:getLocation();
+		local playerLoc = Location:new(world, x, y, z);
+		playerLoc:strikeLightning;
 	
 end
 
