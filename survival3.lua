@@ -1,4 +1,5 @@
 local myWorld3 = World:new('survival3');
+local survivalsound = Location:new(myWorld3, 0, 0, 0);
 
 --------
 ---AI---
@@ -42,10 +43,8 @@ function dog_smite(data)
                 if hasPrefix(message, "dog smite me") then
 		local playerName = splitPlayerName(message, 16);
 	        s3_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		local myWorld3, x, y, z = player:getLocation();
-		local playerLoc = Location:new(world, x, y, z);
-		strikeLightning(playerLoc);
-	
+		survivalsound:playSound('AMBIENCE_THUNDER', 100, 0);
+		
 end
 
 registerHook("CHAT_MESSAGE", "dog_smite", "survival3");
