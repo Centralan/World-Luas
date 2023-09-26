@@ -1,8 +1,5 @@
 local myWorld3 = World:new('survival3');
-local myWorld2 = World:new('spawn2');
-local myWorld4 = World:new('creative');
-local survivalsound = Location:new(myWorld3, 0, 0, 0);
-local creativesound = Location:new(myWorld4, 0, 0, 0);
+local survivalsound = Location:new(myWorld3, 0, 0, 0);;
 
 --------
 ---AI---
@@ -10,8 +7,6 @@ local creativesound = Location:new(myWorld4, 0, 0, 0);
 
 local mut = '&3[?] &bDOG&f: A player has purchased daytime. Praise the sun!'
 local mut2 = '&3[?] &bDOG&f: A player has purchased nighttime. Praise the moon!'
-local mut3 = '&3[?] &bDOG&f: May you have mercy on their soul.'
-local mut8 = '&3[?] &bDOG&f: &erolls over'
 local Message = ''
 
 
@@ -20,63 +15,9 @@ function s3_broadcast(msg)
 	myWorld3:broadcast(msg);
 end
 
-function s3_broadcast2(msg)
-	myWorld2:broadcast(msg);
-end
-
-function s3_broadcast3(msg)
-	myWorld4:broadcast(msg);
-end
-
 function s3_whisper_npc(npc, msg, player)
 	player:sendMessage('&f&c' .. npc .. '&f' .. msg);
 end
-
-----------------------------------
-------------chat mon--------------
-----------------------------------
-
-local function hasPrefix(subject, prefix)
-	return string.sub(subject, 1, string.len(prefix)) == prefix;
-end
-
-local function splitPlayerName(message, len)
-	return string.sub(message, len, string.len(message));
-end
-
-
-function dog_smite(data)
-	 local player = Player:new(data.player);
-		local message = data.message;
-                if hasPrefix(message, "dog smite") then
-		local playerName = splitPlayerName(message, 16);
-	        s3_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		s3_broadcast2(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                s3_broadcast3(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		survivalsound:playSound('AMBIENCE_THUNDER', 100, 1);
-		creativesound:playSound('AMBIENCE_THUNDER', 100, 1);
-		
-end
-	
-function dog_whine(data)
-         local player = Player:new(data.player);
-                local message = data.message;
-                if hasPrefix(message, "pets dog") then
-                local playerName = splitPlayerName(message, 16);
-                s3_broadcast(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                s3_broadcast2(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                s3_broadcast3(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                creativesound:playSound('WOLF_WHINE', 100, 1);
-                survivalsound:playSound('WOLF_WHINE', 100, 1);
-
-        end
-end
-
-registerHook("CHAT_MESSAGE", "dog_whine", "creative");
-registerHook("CHAT_MESSAGE", "dog_whine", "survival3");
-registerHook("CHAT_MESSAGE", "dog_smite", "survival3");
-registerHook("CHAT_MESSAGE", "dog_smite", "creative");
-	
 ------------------------------------
 ------------spawn-------------------
 ------------------------------------
