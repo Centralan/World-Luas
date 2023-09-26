@@ -4,8 +4,10 @@ local myWorld3 = World:new('survival3');
 ---AI---
 --------
 
-local mut = '[&bDOG]'
+local mut = '&9[?] &bDOG &fA Plaer has purchased daytime. Praise the sun!'
+local mut2 = '&9[?] &bDOG &fA Plaer has purchased nighttime. Praise the moon!'
 local Message = ''
+
 
 function s3_broadcast(msg)
 	myWorld3:broadcast(msg);
@@ -71,7 +73,7 @@ end
 function nighttimeButtonClick(data)
 	local player = Player:new(data.player);
 		player:sendMessage("§aIt's now nighttime!");
-		s3_broadcast(mut, "§6" .. player.name .. " has purchased nighttime. Praise the moon!");
+		s3_broadcast(mut2, "§6" .. player.name .. " has purchased nighttime. Praise the moon!");
 		myworld3:setTime(1800);
 end
 
