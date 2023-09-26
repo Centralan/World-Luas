@@ -47,7 +47,7 @@ end
 function dog_smite(data)
 	 local player = Player:new(data.player);
 		local message = data.message;
-                if hasPrefix(message, "dog smite me") then
+                if hasPrefix(message, "smite") then
 		local playerName = splitPlayerName(message, 16);
 	        s3_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		s3_broadcast2(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
