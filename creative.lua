@@ -4,7 +4,7 @@ local creativesound = Location:new(myWorld4, 0, 0, 0);
 
 
 ---------
----AI---
+---AI----
 ---------
 
 local mut4 = '&3[?] &bCAT&f: A player has made it day!'
