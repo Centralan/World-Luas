@@ -18,7 +18,7 @@ function c_broadcast(msg)
 end
 
 ----------------------------------
-------------chat mon--------------
+------------Time Control----------
 ----------------------------------
 
 local function hasPrefix(subject, prefix)
