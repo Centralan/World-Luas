@@ -42,7 +42,7 @@ function cat_day(data)
 		local playerName = splitPlayerName(message, 16);
 	        c_broadcast(mut4, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		myworld4:setTime(0);
-		
+	end
 end
 
 function cat_night(data)
@@ -52,7 +52,7 @@ function cat_night(data)
 		local playerName = splitPlayerName(message, 16);
 	        c_broadcast(mut5, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		myworld4:setTime(14000);
-		
+	end
 end
 
 registerHook("CHAT_MESSAGE", "cat_day", "creative");
