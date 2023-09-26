@@ -52,7 +52,7 @@ function dog_smite(data)
               creative_broadcast3(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		          survivalsound:playSound('AMBIENCE_THUNDER', 100, 1);
 		          creativesound:playSound('AMBIENCE_THUNDER', 100, 1);
-		
+	end
 end
 	
 function dog_whine(data)
