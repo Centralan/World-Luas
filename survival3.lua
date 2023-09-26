@@ -64,14 +64,14 @@ local exittimeshop = Location:new(myWorld, -639.0, 61.0, -65.0);
 function daytimeButtonClick(data)
 	local player = Player:new(data.player);
 		player:sendMessage("§aIt's now daytime!");
-		myworld:s3_broadcast("§6" .. player.name .. " has purchased daytime. Praise the sun!");
+	        s3_broadcast(mut, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		myworld:setTime(600);
 end
 
 function nighttimeButtonClick(data)
 	local player = Player:new(data.player);
 		player:sendMessage("§aIt's now nighttime!");
-		myworld:s3_broadcast("§6" .. player.name .. " has purchased night time. Praise the moon!");
+		s3_broadcast(mut, "§6" .. player.name .. " has purchased nighttime. Praise the moon!");
 		myworld:setTime(1800);
 end
 
