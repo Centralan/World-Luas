@@ -7,11 +7,11 @@ local creativesound = Location:new(myWorld4, 0, 0, 0);
 ------------------
 ---MUT Protocal---
 ------------------
---mut is in survival.lua
---mut2 is in survival.lua
+--mut is in survival.lua (Time Control)
+--mut2 is in survival.lua (Time Control)
 local mut3 = '&3[?] &bDOG&f: May you have mercy on their soul.'
---mut4 is in creative.lua
---mut5 is in creative.lua
+--mut4 is in creative.lua (Time Control)
+--mut5 is in creative.lua (Time Control)
 local mut6 = '&3[?] &bCAT&f: meow.'
 local mut7 = '&3[?] &bCAT&f: &erolls over'
 local mut8 = '&3[?] &bDOG&f: &erolls over'
