@@ -1,3 +1,22 @@
+--------
+---AI---
+--------
+
+local mut = '[&bDOG]'
+local Message = ''
+
+function s3_broadcast(msg)
+	myWorld:broadcast(msg);
+end
+
+function s3_broadcast_npc(npc, msg)
+	a_broadcast('&f&c' .. npc .. '&6: &f' .. msg);
+end
+
+function s3_whisper_npc(npc, msg, player)
+	player:sendMessage('&f&c' .. npc .. '&f' .. msg);
+end
+
 ------------------------------------
 ------------spawn-------------------
 ------------------------------------
@@ -45,14 +64,14 @@ local exittimeshop = Location:new(myWorld, -639.0, 61.0, -65.0);
 function daytimeButtonClick(data)
 	local player = Player:new(data.player);
 		player:sendMessage("§aIt's now daytime!");
-		myworld:broadcast("§6" .. player.name .. " has purchased daytime. Praise the sun!");
+		myworld:s3_broadcast("§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		myworld:setTime(600);
 end
 
 function nighttimeButtonClick(data)
 	local player = Player:new(data.player);
 		player:sendMessage("§aIt's now nighttime!");
-		myworld:broadcast("§6" .. player.name .. " has purchased night time. Praise the moon!");
+		myworld:s3_broadcast("§6" .. player.name .. " has purchased night time. Praise the moon!");
 		myworld:setTime(1800);
 end
 
