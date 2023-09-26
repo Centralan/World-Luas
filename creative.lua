@@ -43,7 +43,7 @@ function cr_day(data)
 	        player:sendMessage("§aIt's now daytime!");
 	        c_broadcast(mut4, "§6" .. player.name .. " has made it day!");
 		      myworld4:setTime(0);
-		
+	end
 end
 
   function cr_night(data)
@@ -54,7 +54,7 @@ end
 	        player:sendMessage("§aIt's now nighttime!");
 		      c_broadcast(mut5, "§6" .. player.name .. " has made it night!");
 		      myworld4:setTime(14000);
-		
+	end
 end
 
 registerHook("CHAT_MESSAGE", "cr_day", "creative");
