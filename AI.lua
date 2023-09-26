@@ -49,7 +49,7 @@ function dog_smite(data)
 		    local playerName = splitPlayerName(message, 16);
 	            survival_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 	            spawn2_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                    creative_broadcast3(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                    creative_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
 		    survivalsound:playSound('AMBIENCE_THUNDER', 100, 1);
 		    creativesound:playSound('AMBIENCE_THUNDER', 100, 1);
 	end
@@ -62,7 +62,7 @@ function dog_whine(data)
                 local playerName = splitPlayerName(message, 16);
                 survival_broadcast(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
                 spawn2_broadcast(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-                creative_broadcast3(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                creative_broadcast(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
                 creativesound:playSound('WOLF_WHINE', 100, 1);
                 survivalsound:playSound('WOLF_WHINE', 100, 1);
 
