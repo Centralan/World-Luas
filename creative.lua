@@ -1,4 +1,6 @@
 local myWorld4 = World:new('creative');
+local creativesound = Location:new(myWorld4, 0, 0, 0);
+
 
 ---------
 ---AI---
@@ -57,5 +59,31 @@ function cat_night(data)
 	end
 end
 
+
+function cat_meow(data)
+         local player = Player:new(data.player);
+                local message = data.message;
+                if hasPrefix(message, "cat hi") then
+                local playerName = splitPlayerName(message, 16);
+                c_broadcast(mut6, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                creativesound:playSound('CAT_MEOW', 100, 1);
+
+        end
+end
+
+function cat_meow2(data)
+         local player = Player:new(data.player);
+                local message = data.message;
+                if hasPrefix(message, "hi cat") then
+                local playerName = splitPlayerName(message, 16);
+                c_broadcast(mut7, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                creativesound:playSound('CAT_MEOW', 100, 1);
+
+        end
+end
+
 registerHook("CHAT_MESSAGE", "cat_day", "creative");
 registerHook("CHAT_MESSAGE", "cat_night", "creative");
+registerHook("CHAT_MESSAGE", "cat_meow", "creative");
+registerHook("CHAT_MESSAGE", "cat_meow2", "creative");
+
