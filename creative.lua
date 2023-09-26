@@ -2,7 +2,7 @@ local myWorld4 = World:new('creative');
 
 --------
 ---AI---
---------
+---------
 
 local mut4 = '&3[?] &bCAT&f: A player has made it day!'
 local mut5 = '&3[?] &bCAT&f: A player has made it night'
