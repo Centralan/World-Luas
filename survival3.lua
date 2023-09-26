@@ -6,6 +6,7 @@ local myWorld3 = World:new('survival3');
 
 local mut = '&3[?] &bDOG&f: A Player has purchased daytime. Praise the sun!'
 local mut2 = '&3[?] &bDOG&f: A Player has purchased nighttime. Praise the moon!'
+local mut3 = '&3[?] &bDOG&f: Get smited peasant!
 local Message = ''
 
 
@@ -22,6 +23,30 @@ function s3_whisper_npc(npc, msg, player)
 	player:sendMessage('&f&c' .. npc .. '&f' .. msg);
 end
 
+----------------------------------
+------------chat mon--------------
+----------------------------------
+
+local function hasPrefix(subject, prefix)
+	return string.sub(subject, 1, string.len(prefix)) == prefix;
+end
+
+local function splitPlayerName(message, len)
+	return string.sub(message, len, string.len(message));
+end
+
+
+function dog_smite(data)
+	 local player = Player:new(data.player);
+		local message = data.message;
+                if hasPrefix(message, "dog smite me") then
+		local playerName = splitPlayerName(message, 16);
+	        s3_broadcast(mut3, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+	        strikeLightning(player, ~, ~, ~);
+end
+
+registerHook("CHAT_MESSAGE", "dog_smite", "survival3");
+	
 ------------------------------------
 ------------spawn-------------------
 ------------------------------------
