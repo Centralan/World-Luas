@@ -1,4 +1,5 @@
 local myWorld3 = World:new('survival3');
+local myWorld6 = World:new('azuren');
 local survivalsound = Location:new(myWorld3, 0, 0, 0);;
 
 --------
@@ -91,6 +92,17 @@ registerHook("INTERACT", "daytimeButtonClick", 143, "survival3", -607.0, 56.0, -
 registerHook("INTERACT", "nighttimeButtonClick", 143, "survival3", -607.0, 56.0, -77.0); 
 registerHook("REGION_ENTER", "time_enter", "survival3-timeshop1");
 registerHook("REGION_ENTER", "time_exit", "survival3-timeshop2");
+
+----------------------------------
+----------Azuren------------------
+----------------------------------
+local azurentp = Location:new(myWorld6, 10000, 65.0, 1000.0);
+function azuren_enter(data)
+        local targetplayer = Player:new(data.player);
+          targetplayer:teleport(azurentp);
+end
+
+registerHook("REGION_ENTER", "azuren_enter", "survival3-azuern_tp");
 
 ----------------------------------
 ---------max----------------------
