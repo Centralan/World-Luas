@@ -103,7 +103,7 @@ function end_enter(data)
           targetplayer:teleport(endtp);
 end
 
-registerHook("REGION_ENTER", "end_enter", "survival3-azuern_tp");
+registerHook("REGION_ENTER", "end_enter", "survival3-end_tp");
 
 ----------------------------------
 ----------Azuren------------------
