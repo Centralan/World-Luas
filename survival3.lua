@@ -30,6 +30,7 @@ function lobby_easter_room(data)
          end 
 
 registerHook("REGION_ENTER", "lobby_easter_room", "survival3-spawn_easter");
+registerHook("REGION_ENTER", "lobby_easter_room", "survival3-belowspawn2");
 
 
 function survival_smarts(data)
@@ -54,6 +55,30 @@ registerHook("REGION_ENTER", "tramp", "survival3-tramp2");
 registerHook("REGION_ENTER", "tramp", "survival3-tramp3");
 registerHook("REGION_ENTER", "tramp", "survival3-tramp4");
 registerHook("REGION_ENTER", "tramp2", "survival3-tramp5");
+
+
+--------------------------
+-----zozael spawn---------
+--------------------------
+
+function snooping(data)
+         local p = Player:new(data["player"]);       
+          p:sendEvent("achievement.snoopingaround");
+         end 
+
+function beworse(data)
+         local p = Player:new(data["player"]);       
+          p:sendEvent("achievement.couldbeworse");
+         end
+
+function couldbe(data)
+         local p = Player:new(data["player"]);       
+          p:sendEvent("achievement.wherecouldtheybe");
+         end 
+
+registerHook("REGION_ENTER", "snooping", "survival3-primarytunnel");
+registerHook("REGION_ENTER", "beworse", "survival3-primarybasin");
+registerHook("REGION_ENTER", "couldbe", "survival3-doorwaycontrols");
 
 -----------------------------
 ---------time control----
