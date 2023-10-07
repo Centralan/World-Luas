@@ -69,10 +69,26 @@ function dog_whine(data)
         end
 end
 
+function dog_glow(data)
+         local player = Player:new(data.player);
+                local message = data.message;
+                if hasPrefix(message, "Glowstone Grief") then
+                local playerName = splitPlayerName(message, 16);
+                     survival_broadcast(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                     spawn2_broadcast(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                     creative_broadcast(mut8, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
+
+        end
+end
+
 registerHook("CHAT_MESSAGE", "dog_whine", "creative");
 registerHook("CHAT_MESSAGE", "dog_whine", "survival3");
 registerHook("CHAT_MESSAGE", "dog_smite", "survival3");
 registerHook("CHAT_MESSAGE", "dog_smite", "creative");
+registerHook("CHAT_MESSAGE", "dog_glow", "creative");
+registerHook("CHAT_MESSAGE", "dog_glow", "survival3");
+
+
 
 -------------------
 -----cat-----------
