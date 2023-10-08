@@ -21,7 +21,7 @@ function s3_whisper_npc(npc, msg, player)
 	player:sendMessage('&f&c' .. npc .. '&f' .. msg);
 end
 ------------------------------------
-------------spawn-------------------
+------------Cheeves-------------------
 ------------------------------------
 
 function lobby_easter_room(data)
@@ -56,6 +56,39 @@ registerHook("REGION_ENTER", "tramp", "survival3-tramp3");
 registerHook("REGION_ENTER", "tramp", "survival3-tramp4");
 registerHook("REGION_ENTER", "tramp2", "survival3-tramp5");
 
+--------------------------
+----spawn---------
+--------------------------
+
+local helmet = Location:new(myWorld3, -611.0, 61.0, -71.0);
+
+local helmetChestPlayers = {};
+local helmetChestResetTimer = Timer:new("helmet_reset_chest", 200 * 600 * 50);
+local helmetChestResetTimerRunning = false;
+local helmetChestOpen = Location:new(myWorld3, -611.0, 61.0, -71.0);
+
+function helmet_reset_chest()
+	helmetChestPlayers = {};
+	helmetChestResetTimerRunning = false;
+end
+
+function helmet_1(data)
+        local player = Player:new(data.player);
+        if not  helmetChestPlayers[player.name] then
+                helmet:cloneChestToPlayer(player.name);
+                player:closeInventory();
+                helmetChestPlayers[player.name] = true;
+	if helmetChestPlayers[player.name] then
+	   player:sendMessage('&7Youre banned from free armour try again later.');
+            player:closeInventory();
+                if not helmetChestResetTimerRunning then
+                        helmetChestResetTimerRunning = true;
+                        helmetChestResetTimer:start();
+                end
+        end
+end
+
+	registerHook("INTERACT", "helmet_1", 143, "survival3", -612, 63, -68);
 
 --------------------------
 -----zozael spawn---------
