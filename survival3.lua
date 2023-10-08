@@ -61,15 +61,59 @@ registerHook("REGION_ENTER", "tramp2", "survival3-tramp5");
 --------------------------
 
 local helmet = Location:new(myWorld3, -611.0, 61.0, -71.0);
+local chest = Location:new(myWorld3, -611.0, 61.0, -69.0);
+local legs = Location:new(myWorld3, -611.0, 61.0, -67.0);
+local boots = Location:new(myWorld3, -611.0, 61.0, -65.0);
+local sword = Location:new(myWorld3, -611.0, 61.0, -63.0);
 
 local helmetChestPlayers = {};
 local helmetChestResetTimer = Timer:new("helmet_reset_chest", 200 * 600 * 50);
 local helmetChestResetTimerRunning = false;
 local helmetChestOpen = Location:new(myWorld3, -611.0, 61.0, -71.0);
 
+local chestChestPlayers = {};
+local chestChestResetTimer = Timer:new("chest_reset_chest", 200 * 600 * 50);
+local chestChestResetTimerRunning = false;
+local chesttChestOpen = Location:new(myWorld3, -611.0, 61.0, -69.0);
+
+local legsChestPlayers = {};
+local legsChestResetTimer = Timer:new("legs_reset_chest", 200 * 600 * 50);
+local legsChestResetTimerRunning = false;
+local legsChestOpen = Location:new(myWorld3, -611.0, 61.0, -67.0);
+
+local bootsChestPlayers = {};
+local bootsChestResetTimer = Timer:new("boots_reset_chest", 200 * 600 * 50);
+local bootsChestResetTimerRunning = false;
+local bootsChestOpen = Location:new(myWorld3, -611.0, 61.0, -65.0);
+
+local swordChestPlayers = {};
+local swordChestResetTimer = Timer:new("sword_reset_chest", 200 * 600 * 50);
+local swordChestResetTimerRunning = false;
+local swordChestOpen = Location:new(myWorld3, -611.0, 61.0, -63.0);
+
 function helmet_reset_chest()
 	helmetChestPlayers = {};
 	helmetChestResetTimerRunning = false;
+end
+
+function chest_reset_chest()
+	chestChestPlayers = {};
+	chestChestResetTimerRunning = false;
+end
+
+function legs_reset_chest()
+	legsChestPlayers = {};
+	bootsChestResetTimerRunning = false;
+end
+
+function legs_reset_chest()
+	legsChestPlayers = {};
+	legsChestResetTimerRunning = false;
+end
+
+function sword_reset_chest()
+	swordChestPlayers = {};
+	swordChestResetTimerRunning = false;
 end
 
 function helmet_1(data)
@@ -78,9 +122,7 @@ function helmet_1(data)
                 helmet:cloneChestToPlayer(player.name);
                 player:closeInventory();
                 helmetChestPlayers[player.name] = true;
-	if helmetChestPlayers[player.name] then
-	   player:sendMessage('&7Youre banned from free armour try again later.');
-            player:closeInventory();
+		
                 if not helmetChestResetTimerRunning then
                         helmetChestResetTimerRunning = true;
                         helmetChestResetTimer:start();
@@ -88,7 +130,66 @@ function helmet_1(data)
         end
 end
 
-	registerHook("INTERACT", "helmet_1", 143, "survival3", -612, 63, -68);
+function chest_1(data)
+        local player = Player:new(data.player);
+        if not  chestChestPlayers[player.name] then
+                chest:cloneChestToPlayer(player.name);
+                player:closeInventory();
+                chestChestPlayers[player.name] = true;
+		
+                if not chestChestResetTimerRunning then
+                        chestChestResetTimerRunning = true;
+                        chestChestResetTimer:start();
+                end
+        end
+end
+
+function legs_1(data)
+        local player = Player:new(data.player);
+        if not  legsChestPlayers[player.name] then
+                legs:cloneChestToPlayer(player.name);
+                player:closeInventory();
+                legsChestPlayers[player.name] = true;
+		
+                if not legsChestResetTimerRunning then
+                        legsChestResetTimerRunning = true;
+                        legsChestResetTimer:start();
+                end
+        end
+end
+
+function boots_1(data)
+        local player = Player:new(data.player);
+        if not  bootsChestPlayers[player.name] then
+                boots:cloneChestToPlayer(player.name);
+                player:closeInventory();
+                bootsChestPlayers[player.name] = true;
+		
+                if not bootsChestResetTimerRunning then
+                        bootsChestResetTimerRunning = true;
+                        bootsChestResetTimer:start();
+                end
+        end
+end
+
+function sword_1(data)
+        local player = Player:new(data.player);
+        if not  swordChestPlayers[player.name] then
+                sword:cloneChestToPlayer(player.name);
+                player:closeInventory();
+                swordChestPlayers[player.name] = true;
+		
+                if not swordChestResetTimerRunning then
+                        swordChestResetTimerRunning = true;
+                        swordChestResetTimer:start();
+                end
+        end
+end
+registerHook("INTERACT", "helmet_1", 143, "survival3", -612, 63, -68);
+registerHook("INTERACT", "chest_1", 143, "survival3", -612, 63, -67);
+registerHook("INTERACT", "legs_1", 143, "survival3", -612, 63, -66);
+registerHook("INTERACT", "boots_1", 143, "survival3", -612, 63, -65);
+registerHook("INTERACT", "sword_1", 143, "survival3", -612, 63, -64);
 
 --------------------------
 -----zozael spawn---------
