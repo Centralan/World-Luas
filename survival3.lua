@@ -122,7 +122,9 @@ function helmet_1(data)
                 helmet:cloneChestToPlayer(player.name);
                 player:closeInventory();
                 helmetChestPlayers[player.name] = true;
-		
+		player:sendMessage("&a Free helment purchased!");
+		player:sendMessage("&c You're been placed on a cooldown for this armour, better not lose it.");
+
                 if not helmetChestResetTimerRunning then
                         helmetChestResetTimerRunning = true;
                         helmetChestResetTimer:start();
@@ -136,7 +138,9 @@ function chest_1(data)
                 chest:cloneChestToPlayer(player.name);
                 player:closeInventory();
                 chestChestPlayers[player.name] = true;
-		
+		player:sendMessage("&a Free chestplate purchased!");
+		player:sendMessage("&c You're been placed on a cooldown for this armour, better not lose it.");
+
                 if not chestChestResetTimerRunning then
                         chestChestResetTimerRunning = true;
                         chestChestResetTimer:start();
@@ -150,7 +154,9 @@ function legs_1(data)
                 legs:cloneChestToPlayer(player.name);
                 player:closeInventory();
                 legsChestPlayers[player.name] = true;
-		
+		player:sendMessage("&a Free leggings purchased!");
+		player:sendMessage("&c You're been placed on a cooldown for this armour, better not lose it.");
+
                 if not legsChestResetTimerRunning then
                         legsChestResetTimerRunning = true;
                         legsChestResetTimer:start();
@@ -164,7 +170,9 @@ function boots_1(data)
                 boots:cloneChestToPlayer(player.name);
                 player:closeInventory();
                 bootsChestPlayers[player.name] = true;
-		
+		player:sendMessage("&a Free boots purchased!");
+		player:sendMessage("&c You're been placed on a cooldown for this armour, better not lose it.");
+
                 if not bootsChestResetTimerRunning then
                         bootsChestResetTimerRunning = true;
                         bootsChestResetTimer:start();
@@ -178,7 +186,9 @@ function sword_1(data)
                 sword:cloneChestToPlayer(player.name);
                 player:closeInventory();
                 swordChestPlayers[player.name] = true;
-		
+		player:sendMessage("&a Free sword purchased!");
+		player:sendMessage("&c You're been placed on a cooldown for this weapon, better not lose it.");
+
                 if not swordChestResetTimerRunning then
                         swordChestResetTimerRunning = true;
                         swordChestResetTimer:start();
