@@ -38,26 +38,10 @@ function survival_smarts(data)
           p:sendEvent("achievement.survivalsmarts");
          end 
 
-registerHook("INTERACT", "survival_smarts", 143, "survival3", -612.0, 64.0, -80.0); 
-
-function tramp(data)
-	local player = Player:new(data.player);
-	player:setVelocity(0, 3, 0);
-end
-
-function tramp2(data)
-	local player = Player:new(data.player);
-	player:setVelocity(0, 10, 0);
-end
-
-registerHook("REGION_ENTER", "tramp", "survival3-tramp1");
-registerHook("REGION_ENTER", "tramp", "survival3-tramp2");
-registerHook("REGION_ENTER", "tramp", "survival3-tramp3");
-registerHook("REGION_ENTER", "tramp", "survival3-tramp4");
-registerHook("REGION_ENTER", "tramp2", "survival3-tramp5");
+registerHook("INTERACT", "survival_smarts", 143, "survival3", -6120.0, 70.0, -84.0);
 
 --------------------------
-----spawn---------
+----Free Gear---------
 --------------------------
 
 local helmet = Location:new(myWorld3, -611.0, 61.0, -71.0);
@@ -202,6 +186,32 @@ registerHook("INTERACT", "boots_1", 143, "survival3", -612, 63, -65);
 registerHook("INTERACT", "sword_1", 143, "survival3", -612, 63, -64);
 
 --------------------------
+----------Shops-----------
+--------------------------
+local shopt = Location:new(myWorld3, -615.469, 68.0, -80.699);
+shopt:setYaw(179.4);
+shopt:setPitch(4.2);
+
+local shopb = Location:new(myWorld3, -615.469, 63.0, -80.699);
+shopb:setYaw(87.9);
+shopb:setPitch(1.5);
+
+function shop_t(data)
+             local player = Player:new(data.player);
+             player:teleport(shopt);
+
+      end
+
+function shop_b(data)
+             local player = Player:new(data.player);
+             player:teleport(shopb);
+
+      end
+
+registerHook("REGION_ENTER", "shop_b", "survival3-shop_t");
+registerHook("REGION_ENTER", "shop_t", "survival3-shop_b");
+
+--------------------------
 -----zozael spawn---------
 --------------------------
 
@@ -223,45 +233,6 @@ function couldbe(data)
 registerHook("REGION_ENTER", "snooping", "survival3-primarytunnel");
 registerHook("REGION_ENTER", "beworse", "survival3-primarybasin");
 registerHook("REGION_ENTER", "couldbe", "survival3-doorwaycontrols");
-
------------------------------
----------time control----
------------------------------
-
-local totimeshop = Location:new(myWorld3, -609.0, 56.0, -77.0);
-local exittimeshop = Location:new(myWorld3, -639.0, 61.0, -65.0);
-
-function daytimeButtonClick(data)
-	local player = Player:new(data.player);
-		player:sendMessage("§aIt's now daytime!");
-	        s3_broadcast(mut, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		myWorld3:setTime(600);
-	        survivalsound:playSound('WOLF_BARK', 100, 1);
-end
-
-function nighttimeButtonClick(data)
-	local player = Player:new(data.player);
-		player:sendMessage("§aIt's now nighttime!");
-		s3_broadcast(mut2, "§6" .. player.name .. " has purchased nighttime. Praise the moon!");
-		myWorld3:setTime(1800);
-	        survivalsound:playSound('WOLF_HOWL', 100, 1);
-end
-
-function time_enter(data)
-        local targetplayer = Player:new(data.player);
-          targetplayer:teleport(totimeshop);
-end
-
-function time_exit(data)
-        local targetplayer = Player:new(data.player);
-          targetplayer:teleport(exittimeshop);
-end
-
-
-registerHook("INTERACT", "daytimeButtonClick", 143, "survival3", -607.0, 56.0, -79.0); 
-registerHook("INTERACT", "nighttimeButtonClick", 143, "survival3", -607.0, 56.0, -77.0); 
-registerHook("REGION_ENTER", "time_enter", "survival3-timeshop1");
-registerHook("REGION_ENTER", "time_exit", "survival3-timeshop2");
 
 ----------------------------------
 ----------end------------------
