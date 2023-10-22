@@ -185,6 +185,21 @@ registerHook("INTERACT", "legs_1", 143, "survival3", -612, 63, -66);
 registerHook("INTERACT", "boots_1", 143, "survival3", -612, 63, -65);
 registerHook("INTERACT", "sword_1", 143, "survival3", -612, 63, -64);
 
+---------------------------
+-------Jail----------------
+---------------------------
+local jail = Location:new(myWorld3, -644.844, 50.0, -83.719);
+
+function respawn_jail(data)
+	 if players:hasPermission("runsafe.warp.use.troll") then
+             local player = Player:new(data.player);
+             player:setHealth(20);
+             player:teleport(jail);
+      end
+
+registerHook("PLAYER_DEATH", "respawn_jail", "survival3");
+
+
 --------------------------
 ----------Shops-----------
 --------------------------
