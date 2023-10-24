@@ -226,6 +226,35 @@ function shop_b(data)
 registerHook("REGION_ENTER", "shop_b", "survival3-shop_t");
 registerHook("REGION_ENTER", "shop_t", "survival3-shop_b");
 
+-------------------------------
+---------Anvils---------------
+------------------------------
+local myWorld3 = "survival3";
+local current = 1;
+local maxData = 1;
+local blocks = {
+        Location:new(myWorld3, -611.0, 64.0, -54.0),
+        Location:new(myWorld3, -611.0, 64.0, -50.0),
+
+};
+
+function spawn_anvils(data)
+        if current == maxData then
+                current = 1;
+        else
+                current = current + 1;
+        end
+        spawn_setAnvils();
+end
+
+function spawn_setAnvils()
+        for index, key in ipairs(blocks) do
+                key:setBlock(145, current);
+        end
+end
+
+registerHook("REGION_ENTER", "spawn_anvils", "survival3-spawn_anvils");
+
 --------------------------
 -----zozael spawn---------
 --------------------------
