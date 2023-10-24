@@ -40,6 +40,25 @@ function survival_smarts(data)
 
 registerHook("INTERACT", "survival_smarts", 143, "survival3", -6120.0, 70.0, -84.0);
 
+function snooping(data)
+         local p = Player:new(data["player"]);       
+          p:sendEvent("achievement.snoopingaround");
+         end 
+
+function beworse(data)
+         local p = Player:new(data["player"]);       
+          p:sendEvent("achievement.couldbeworse");
+         end
+
+function couldbe(data)
+         local p = Player:new(data["player"]);       
+          p:sendEvent("achievement.wherecouldtheybe");
+         end 
+
+registerHook("REGION_ENTER", "snooping", "survival3-primarytunnel");
+registerHook("REGION_ENTER", "beworse", "survival3-primarybasin");
+registerHook("REGION_ENTER", "couldbe", "survival3-doorwaycontrols");
+
 --------------------------
 ----Free Gear---------
 --------------------------
@@ -254,29 +273,6 @@ function spawn_setAnvils()
 end
 
 registerHook("REGION_ENTER", "spawn_anvils", "survival3-spawn_anvils");
-
---------------------------
------zozael spawn---------
---------------------------
-
-function snooping(data)
-         local p = Player:new(data["player"]);       
-          p:sendEvent("achievement.snoopingaround");
-         end 
-
-function beworse(data)
-         local p = Player:new(data["player"]);       
-          p:sendEvent("achievement.couldbeworse");
-         end
-
-function couldbe(data)
-         local p = Player:new(data["player"]);       
-          p:sendEvent("achievement.wherecouldtheybe");
-         end 
-
-registerHook("REGION_ENTER", "snooping", "survival3-primarytunnel");
-registerHook("REGION_ENTER", "beworse", "survival3-primarybasin");
-registerHook("REGION_ENTER", "couldbe", "survival3-doorwaycontrols");
 
 ----------------------------------
 ----------end------------------
