@@ -1,11 +1,9 @@
 local myWorld4 = World:new('creative');
 local creativesound = Location:new(myWorld4, 0, 0, 0);
 
-
-
----------
----AI----
----------
+--------
+-----AI---
+----------
 
 local mut4 = '&3[?] &bCAT&f: A player has made it day!'
 local mut5 = '&3[?] &bCAT&f: A player has made it night'
@@ -18,7 +16,7 @@ function c_broadcast(msg)
 end
 
 ----------------------------------
-------------Time Control----------
+--------------Time Control--------
 ----------------------------------
 
 local function hasPrefix(subject, prefix)
@@ -35,11 +33,11 @@ function cat_day(data)
 		local message = data.message;
                 if hasPrefix(message, "cat day") then
 		local playerName = splitPlayerName(message, 16);
-		player:sendMessage("§aIt's now daytime!");
-	        c_broadcast(mut4, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		creativesound:playSound('CAT_PURREOW', 100, 1);
-		myworld4:setTime(0);
-	end
+	        player:sendMessage("Â§aIt's now daytime!");
+                c_broadcast(mut4, "Â§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                creativesound:playSound('ENTITY_CAT_PURREOW', 100, 1);
+		myWorld4:setTime(0);
+	end	
 end
 
 function cat_night(data)
@@ -47,12 +45,13 @@ function cat_night(data)
 		local message = data.message;
                 if hasPrefix(message, "cat night") then
 		local playerName = splitPlayerName(message, 16);
-		player:sendMessage("§aIt's now nighttime!");
-	        c_broadcast(mut5, "§6" .. player.name .. " has purchased daytime. Praise the sun!");
-		creativesound:playSound('CAT_PURREOW', 100, 1);
-		myworld4:setTime(14000);
-	end
+	        player:sendMessage("Â§aIt's now nighttime!");
+                c_broadcast(mut5, "Â§6" .. player.name .. " has purchased daytime. Praise the sun!");
+                creativesound:playSound('ENTITY_CAT_PURREOW', 100, 1);
+		myWorld4:setTime(14000);
+	end	
 end
 
 registerHook("CHAT_MESSAGE", "cat_day", "creative");
 registerHook("CHAT_MESSAGE", "cat_night", "creative");
+
