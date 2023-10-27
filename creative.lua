@@ -55,3 +55,15 @@ end
 registerHook("CHAT_MESSAGE", "cat_day", "creative");
 registerHook("CHAT_MESSAGE", "cat_night", "creative");
 
+-----------------------------------
+----------pkr----------------------
+-----------------------------------
+
+function pkr_mode(data)
+        local p = Player:new(data["player"]);
+        p:setMode("ADVENTURE");
+end
+
+registerHook("REGION_ENTER", "pkr_mode", "creative-centralan_7");
+
+
