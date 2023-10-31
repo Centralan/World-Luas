@@ -239,6 +239,8 @@ registerHook("INTERACT", "chest_1", 143, "survival3", 19534.0, 71.0, -20849.0);
 registerHook("INTERACT", "legs_1", 143, "survival3", 19535.0, 71.0, -20849.0);
 registerHook("INTERACT", "boots_1", 143, "survival3", 19536.0, 71.0, -20849.0);
 registerHook("INTERACT", "boots_1", 143, "survival3", 19537.0, 71.0, -20849.0);
+registerHook("INTERACT", "sword_1", 143, "survival3", 19537.0, 71, -20849.0);
+registerHook("INTERACT", "sword_1", 143, "survival3", 19533.0, 71, -20733.0);
 
 -------------------------------
 ---------Anvils---------------
