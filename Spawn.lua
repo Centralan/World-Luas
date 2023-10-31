@@ -3,6 +3,8 @@ local world2 = World:new('Creative');
 local world4 = World:new('mobarena');
 local world5 = World:new('azuren');
 local world6 = World:new('survival3_end');
+local world7 = World:new('pvparena');
+local world8 = World:new('wizardpvp');
 
 -------------------
 -----Sounds--------
@@ -667,3 +669,91 @@ end
 
 registerHook("INTERACT", "spawn_setAir6", 143, "survival3", 19553.0, 72, -20765.0);
 registerHook("REGION_LEAVE", "spawn_setGlass6", "survival3-wpvp_tp");
+
+
+------------------Portal Warps
+
+local world = World:new('survival3');
+local world2 = World:new('Creative');
+local world4 = World:new('mobarena');
+local world5 = World:new('azuren');
+local world6 = World:new('survival3_end');
+local world7 = World:new('pvparena');
+local world8 = World:new('wizardpvp');
+
+local creativetp = Location:new(world2, -14.190, 67.0, -13.673);
+creativetp:setYaw(-51.3);
+creativetp:setPitch(-24.3);
+
+local pvptp = Location:new(world7, -1039.491, 4.0, 466.538);
+pvptp:setYaw(-179.1);
+pvptp:setPitch(1.5);
+
+local wpvptp = Location:new(world8, 1029.194, 5.0, 4.199);
+wpvptp:setYaw(-2.2);
+wpvptp:setPitch(13.3);
+
+local spleeftp = Location:new(world2, -347.353, 95.0, 207.66);
+spleeftp:setYaw(0.0);
+spleeftp:setPitch(0.0);
+
+local pkrtp = Location:new(world2, -1407.420, 71.0, 5653.615);
+pkrtp:setYaw(0.0);
+pkrtp:setPitch(0.6);
+
+local ertp = Location:new(world2, -1621.546, 64.0, 5817.491);
+ertp:setYaw(-90.7);
+ertp:setPitch(-0.0);
+
+local pvetp = Location:new(world4, 837.441, 97.0, 149.280);
+pvetp:setYaw(-1.2);
+pvetp:setPitch(5.1);
+
+function tp_creative(data)
+             local player = Player:new(data.player);
+             player:teleport(creativetp);
+
+      end
+
+function tp_pvp(data)
+             local player = Player:new(data.player);
+             player:teleport(pvptp);
+
+      end
+
+function tp_wpvp(data)
+             local player = Player:new(data.player);
+             player:teleport(wpvptp);
+
+      end
+
+function tp_spleef(data)
+             local player = Player:new(data.player);
+             player:teleport(spleeftp);
+
+      end
+
+function tp_pkr(data)
+             local player = Player:new(data.player);
+             player:teleport(pkrtp);
+
+      end
+
+function tp_ertp(data)
+             local player = Player:new(data.player);
+             player:teleport(ertp);
+
+      end
+
+function tp_pve(data)
+             local player = Player:new(data.player);
+             player:teleport(pvptp);
+
+      end
+registerHook("REGION_ENTER", "tp_creative", "survival3-cr_tp");
+registerHook("REGION_ENTER", "tp_pvp", "survival3-pvp_tp");
+registerHook("REGION_ENTER", "tp_wpvp", "survival3-wpvp_tp");
+registerHook("REGION_ENTER", "tp_spleef", "survival3-spleef_tp");
+registerHook("REGION_ENTER", "tp_pkr", "survival3-pkr_tp");
+registerHook("REGION_ENTER", "tp_er", "survival3-er_tp");
+registerHook("REGION_ENTER", "tp_pve", "survival3-pve_tp");
