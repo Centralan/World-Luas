@@ -10,6 +10,18 @@ local world8 = World:new('wizardpvp');
 -----Sounds--------
 -------------------
 
+--------------------
+------gamemode check--
+----------------------
+
+function s_mode(data)
+        local p = Player:new(data["player"]);
+        p:setMode("SURVIVAL");
+end
+
+registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
+
+
 -------------------
 ------Cheeves------
 -------------------
