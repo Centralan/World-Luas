@@ -300,132 +300,6 @@ local blocks = {
         Location:new(world, 19556.0, 71.0, -20773.0),
         Location:new(world, 19556.0, 71.0, -20772.0),
         Location:new(world, 19556.0, 71.0, -20771.0),
-	Location:new(world, 19568.0, 71.0, -20792.0),
-        Location:new(world, 19568.0, 71.0, -20791.0),
-        Location:new(world, 19568.0, 71.0, -20790.0),
-        Location:new(world, 19567.0, 71.0, -20793.0),
-        Location:new(world, 19567.0, 71.0, -20792.0),
-        Location:new(world, 19567.0, 71.0, -20791.0),
-        Location:new(world, 19567.0, 71.0, -20790.0),
-        Location:new(world, 19567.0, 71.0, -20789.0),
-        Location:new(world, 19566.0, 71.0, -20793.0),
-        Location:new(world, 19566.0, 71.0, -20792.0),
-        Location:new(world, 19566.0, 71.0, -20791.0),
-        Location:new(world, 19566.0, 71.0, -20790.0),
-        Location:new(world, 19566.0, 71.0, -20789.0),
-        Location:new(world, 19565.0, 71.0, -20793.0),
-        Location:new(world, 19565.0, 71.0, -20792.0),
-        Location:new(world, 19565.0, 71.0, -20791.0),
-        Location:new(world, 19565.0, 71.0, -20790.0),
-        Location:new(world, 19565.0, 71.0, -20789.0),
-        Location:new(world, 19564.0, 71.0, -20792.0),
-        Location:new(world, 19564.0, 71.0, -20791.0),
-        Location:new(world, 19564.0, 71.0, -20790.0),
-	Location:new(world, 19560.0, 71.0, -20811.0),
-        Location:new(world, 19560.0, 71.0, -20810.0),
-        Location:new(world, 19560.0, 71.0, -20809.0),
-        Location:new(world, 19559.0, 71.0, -20812.0),
-        Location:new(world, 19559.0, 71.0, -20811.0),
-        Location:new(world, 19559.0, 71.0, -20810.0),
-        Location:new(world, 19559.0, 71.0, -20809.0),
-        Location:new(world, 19559.0, 71.0, -20808.0),
-        Location:new(world, 19558.0, 71.0, -20812.0),
-        Location:new(world, 19558.0, 71.0, -20811.0),
-        Location:new(world, 19558.0, 71.0, -20810.0),
-        Location:new(world, 19558.0, 71.0, -20809.0),
-        Location:new(world, 19558.0, 71.0, -20808.0),
-        Location:new(world, 19557.0, 71.0, -20812.0),
-        Location:new(world, 19557.0, 71.0, -20811.0),
-        Location:new(world, 19557.0, 71.0, -20810.0),
-        Location:new(world, 19557.0, 71.0, -20809.0),
-        Location:new(world, 19557.0, 71.0, -20808.0),
-        Location:new(world, 19556.0, 71.0, -20811.0),
-        Location:new(world, 19556.0, 71.0, -20810.0),
-        Location:new(world, 19556.0, 71.0, -20809.0),
-	Location:new(world, 19556.0, 71.0, -20802.0),
-        Location:new(world, 19556.0, 71.0, -20801.0),
-        Location:new(world, 19556.0, 71.0, -20800.0),
-        Location:new(world, 19565.0, 71.0, -20803.0),
-        Location:new(world, 19565.0, 71.0, -20802.0),
-        Location:new(world, 19565.0, 71.0, -20801.0),
-        Location:new(world, 19565.0, 71.0, -20800.0),
-        Location:new(world, 19565.0, 71.0, -20799.0),
-        Location:new(world, 19564.0, 71.0, -20803.0),
-        Location:new(world, 19564.0, 71.0, -20802.0),
-        Location:new(world, 19564.0, 71.0, -20801.0),
-        Location:new(world, 19564.0, 71.0, -20800.0),
-        Location:new(world, 19564.0, 71.0, -20799.0),
-        Location:new(world, 19563.0, 71.0, -20803.0),
-        Location:new(world, 19563.0, 71.0, -20802.0),
-        Location:new(world, 19563.0, 71.0, -20801.0),
-        Location:new(world, 19563.0, 71.0, -20800.0),
-        Location:new(world, 19563.0, 71.0, -20799.0),
-        Location:new(world, 19562.0, 71.0, -20802.0),
-        Location:new(world, 19562.0, 71.0, -20801.0),
-        Location:new(world, 19562.0, 71.0, -20800.0),
-	Location:new(world, 19552.0, 71.0, -20818.0),
-        Location:new(world, 19552.0, 71.0, -20817.0),
-        Location:new(world, 19552.0, 71.0, -20816.0),
-        Location:new(world, 19551.0, 71.0, -20819.0),
-        Location:new(world, 19551.0, 71.0, -20818.0),
-        Location:new(world, 19551.0, 71.0, -20817.0),
-        Location:new(world, 19551.0, 71.0, -20816.0),
-        Location:new(world, 19551.0, 71.0, -20815.0),
-        Location:new(world, 19550.0, 71.0, -20819.0),
-        Location:new(world, 19550.0, 71.0, -20818.0),
-        Location:new(world, 19550.0, 71.0, -20817.0),
-        Location:new(world, 19550.0, 71.0, -20816.0),
-        Location:new(world, 19550.0, 71.0, -20815.0),
-        Location:new(world, 19549.0, 71.0, -20819.0),
-        Location:new(world, 19549.0, 71.0, -20818.0),
-        Location:new(world, 19549.0, 71.0, -20817.0),
-        Location:new(world, 19549.0, 71.0, -20816.0),
-        Location:new(world, 19549.0, 71.0, -20815.0),
-        Location:new(world, 19548.0, 71.0, -20818.0),
-        Location:new(world, 19548.0, 71.0, -20817.0),
-        Location:new(world, 19548.0, 71.0, -20816.0),
-	Location:new(world, 19566.0, 71.0, -20782.0),
-        Location:new(world, 19566.0, 71.0, -20781.0),
-        Location:new(world, 19566.0, 71.0, -20780.0),
-        Location:new(world, 19565.0, 71.0, -20783.0),
-        Location:new(world, 19565.0, 71.0, -20782.0),
-        Location:new(world, 19565.0, 71.0, -20781.0),
-        Location:new(world, 19565.0, 71.0, -20780.0),
-        Location:new(world, 19565.0, 71.0, -20779.0),
-        Location:new(world, 19564.0, 71.0, -20783.0),
-        Location:new(world, 19564.0, 71.0, -20782.0),
-        Location:new(world, 19564.0, 71.0, -20781.0),
-        Location:new(world, 19564.0, 71.0, -20780.0),
-        Location:new(world, 19564.0, 71.0, -20779.0),
-        Location:new(world, 19563.0, 71.0, -20783.0),
-        Location:new(world, 19563.0, 71.0, -20782.0),
-        Location:new(world, 19563.0, 71.0, -20781.0),
-        Location:new(world, 19563.0, 71.0, -20780.0),
-        Location:new(world, 19563.0, 71.0, -20779.0),
-        Location:new(world, 19566.0, 71.0, -20782.0),
-        Location:new(world, 19566.0, 71.0, -20781.0),
-        Location:new(world, 19566.0, 71.0, -20780.0),
-	Location:new(world, 19552.0, 71.0, -20766.0),
-        Location:new(world, 19552.0, 71.0, -20765.0),
-        Location:new(world, 19552.0, 71.0, -20764.0),
-        Location:new(world, 19551.0, 71.0, -20767.0),
-        Location:new(world, 19551.0, 71.0, -20766.0),
-        Location:new(world, 19551.0, 71.0, -20765.0),
-        Location:new(world, 19551.0, 71.0, -20764.0),
-        Location:new(world, 19551.0, 71.0, -20763.0),
-        Location:new(world, 19550.0, 71.0, -20767.0),
-        Location:new(world, 19550.0, 71.0, -20766.0),
-        Location:new(world, 19550.0, 71.0, -20765.0),
-        Location:new(world, 19550.0, 71.0, -20764.0),
-        Location:new(world, 19550.0, 71.0, -20763.0),
-        Location:new(world, 19549.0, 71.0, -20767.0),
-        Location:new(world, 19549.0, 71.0, -20766.0),
-        Location:new(world, 19549.0, 71.0, -20765.0),
-        Location:new(world, 19549.0, 71.0, -20764.0),
-        Location:new(world, 19549.0, 71.0, -20763.0),
-        Location:new(world, 19548.0, 71.0, -20766.0),
-        Location:new(world, 19548.0, 71.0, -20765.0),
-        Location:new(world, 19548.0, 71.0, -20764.0),
 
 };
 
@@ -452,15 +326,342 @@ end
 
 registerHook("INTERACT", "spawn_setAir", 143, "survival3", 19561.0, 72, -20772.0);
 registerHook("REGION_LEAVE", "spawn_setGlass", "survival3-pve_tp");
-registerHook("INTERACT", "spawn_setAir", 143, "survival3", 19569.0, 72, -20791.0);
-registerHook("REGION_LEAVE", "spawn_setGlass", "survival3-creative_tp");
-registerHook("INTERACT", "spawn_setAir", 143, "survival3", 19561.0, 72, -20810.0);
-registerHook("REGION_LEAVE", "spawn_setGlass", "survival3-pkr_tp");
-registerHook("INTERACT", "spawn_setAir", 143, "survival3", 19567.0, 72, -20801.0);
-registerHook("REGION_LEAVE", "spawn_setGlass", "survival3-spleef_tp");
-registerHook("INTERACT", "spawn_setAir", 143, "survival3", 19553.0, 72, -20817.0);
-registerHook("REGION_LEAVE", "spawn_setGlass", "survival3-er_tp");
-registerHook("INTERACT", "spawn_setAir", 143, "survival3", 19567.0, 72, -20781.0);
-registerHook("REGION_LEAVE", "spawn_setGlass", "survival3-pvp_tp");
-registerHook("INTERACT", "spawn_setAir", 143, "survival3", 19553.0, 72, -20765.0);
-registerHook("REGION_LEAVE", "spawn_setGlass", "survival3-wpvp_tp");
+
+------------------------------------------------
+----------------creative portal-----------------
+------------------------------------------------
+
+local world = "survival3";
+local current = 2;
+local maxData = 2;
+local blocks = {
+        Location:new(world, 19568.0, 71.0, -20792.0),
+        Location:new(world, 19568.0, 71.0, -20791.0),
+        Location:new(world, 19568.0, 71.0, -20790.0),
+        Location:new(world, 19567.0, 71.0, -20793.0),
+        Location:new(world, 19567.0, 71.0, -20792.0),
+        Location:new(world, 19567.0, 71.0, -20791.0),
+        Location:new(world, 19567.0, 71.0, -20790.0),
+        Location:new(world, 19567.0, 71.0, -20789.0),
+        Location:new(world, 19566.0, 71.0, -20793.0),
+        Location:new(world, 19566.0, 71.0, -20792.0),
+        Location:new(world, 19566.0, 71.0, -20791.0),
+        Location:new(world, 19566.0, 71.0, -20790.0),
+        Location:new(world, 19566.0, 71.0, -20789.0),
+        Location:new(world, 19565.0, 71.0, -20793.0),
+        Location:new(world, 19565.0, 71.0, -20792.0),
+        Location:new(world, 19565.0, 71.0, -20791.0),
+        Location:new(world, 19565.0, 71.0, -20790.0),
+        Location:new(world, 19565.0, 71.0, -20789.0),
+        Location:new(world, 19564.0, 71.0, -20792.0),
+        Location:new(world, 19564.0, 71.0, -20791.0),
+        Location:new(world, 19564.0, 71.0, -20790.0),
+
+};
+
+function spawn_creative(data)
+        if current == maxData then
+                current = 1;
+        else
+                current = current + 1;
+        end
+        spawn_setAir1();
+end
+
+function spawn_setAir1()
+        for index, key in ipairs(blocks) do
+                key:setBlock(0, current);
+        end
+end
+
+function spawn_setGlass1()
+        for index, key in ipairs(blocks) do
+                key:setBlock(35, current);
+        end
+end
+
+registerHook("INTERACT", "spawn_setAir1", 143, "survival3", 19569.0, 72, -20791.0);
+registerHook("REGION_LEAVE", "spawn_setGlass1", "survival3-creative_tp");
+
+------------------------------------------------
+----------------pkr portal-----------------
+------------------------------------------------
+
+local world = "survival3";
+local current = 2;
+local maxData = 2;
+local blocks = {
+        Location:new(world, 19560.0, 71.0, -20811.0),
+        Location:new(world, 19560.0, 71.0, -20810.0),
+        Location:new(world, 19560.0, 71.0, -20809.0),
+        Location:new(world, 19559.0, 71.0, -20812.0),
+        Location:new(world, 19559.0, 71.0, -20811.0),
+        Location:new(world, 19559.0, 71.0, -20810.0),
+        Location:new(world, 19559.0, 71.0, -20809.0),
+        Location:new(world, 19559.0, 71.0, -20808.0),
+        Location:new(world, 19558.0, 71.0, -20812.0),
+        Location:new(world, 19558.0, 71.0, -20811.0),
+        Location:new(world, 19558.0, 71.0, -20810.0),
+        Location:new(world, 19558.0, 71.0, -20809.0),
+        Location:new(world, 19558.0, 71.0, -20808.0),
+        Location:new(world, 19557.0, 71.0, -20812.0),
+        Location:new(world, 19557.0, 71.0, -20811.0),
+        Location:new(world, 19557.0, 71.0, -20810.0),
+        Location:new(world, 19557.0, 71.0, -20809.0),
+        Location:new(world, 19557.0, 71.0, -20808.0),
+        Location:new(world, 19556.0, 71.0, -20811.0),
+        Location:new(world, 19556.0, 71.0, -20810.0),
+        Location:new(world, 19556.0, 71.0, -20809.0),
+
+};
+
+function spawn_pkr(data)
+        if current == maxData then
+                current = 1;
+        else
+                current = current + 1;
+        end
+        spawn_setAir2();
+end
+
+function spawn_setAir2()
+        for index, key in ipairs(blocks) do
+                key:setBlock(0, current);
+        end
+end
+
+function spawn_setGlass2()
+        for index, key in ipairs(blocks) do
+                key:setBlock(35, current);
+        end
+end
+
+registerHook("INTERACT", "spawn_setAir2", 143, "survival3", 19561.0, 72, -20810.0);
+registerHook("REGION_LEAVE", "spawn_setGlass2", "survival3-pkr_tp");
+
+------------------------------------------------
+----------------spleef portal-----------------
+------------------------------------------------
+
+local world = "survival3";
+local current = 2;
+local maxData = 2;
+local blocks = {
+        Location:new(world, 19556.0, 71.0, -20802.0),
+        Location:new(world, 19556.0, 71.0, -20801.0),
+        Location:new(world, 19556.0, 71.0, -20800.0),
+        Location:new(world, 19565.0, 71.0, -20803.0),
+        Location:new(world, 19565.0, 71.0, -20802.0),
+        Location:new(world, 19565.0, 71.0, -20801.0),
+        Location:new(world, 19565.0, 71.0, -20800.0),
+        Location:new(world, 19565.0, 71.0, -20799.0),
+        Location:new(world, 19564.0, 71.0, -20803.0),
+        Location:new(world, 19564.0, 71.0, -20802.0),
+        Location:new(world, 19564.0, 71.0, -20801.0),
+        Location:new(world, 19564.0, 71.0, -20800.0),
+        Location:new(world, 19564.0, 71.0, -20799.0),
+        Location:new(world, 19563.0, 71.0, -20803.0),
+        Location:new(world, 19563.0, 71.0, -20802.0),
+        Location:new(world, 19563.0, 71.0, -20801.0),
+        Location:new(world, 19563.0, 71.0, -20800.0),
+        Location:new(world, 19563.0, 71.0, -20799.0),
+        Location:new(world, 19562.0, 71.0, -20802.0),
+        Location:new(world, 19562.0, 71.0, -20801.0),
+        Location:new(world, 19562.0, 71.0, -20800.0),
+
+};
+
+function spawn_spleef(data)
+        if current == maxData then
+                current = 1;
+        else
+                current = current + 1;
+        end
+        spawn_setAir3();
+end
+
+function spawn_setAir3()
+        for index, key in ipairs(blocks) do
+                key:setBlock(0, current);
+        end
+end
+
+function spawn_setGlass3()
+        for index, key in ipairs(blocks) do
+                key:setBlock(35, current);
+        end
+end
+
+registerHook("INTERACT", "spawn_setAir3", 143, "survival3", 19567.0, 72, -20801.0);
+registerHook("REGION_LEAVE", "spawn_setGlass3", "survival3-spleef_tp");
+
+
+------------------------------------------------
+----------------ER portal-----------------
+------------------------------------------------
+
+local world = "survival3";
+local current = 2;
+local maxData = 2;
+local blocks = {
+        Location:new(world, 19552.0, 71.0, -20818.0),
+        Location:new(world, 19552.0, 71.0, -20817.0),
+        Location:new(world, 19552.0, 71.0, -20816.0),
+        Location:new(world, 19551.0, 71.0, -20819.0),
+        Location:new(world, 19551.0, 71.0, -20818.0),
+        Location:new(world, 19551.0, 71.0, -20817.0),
+        Location:new(world, 19551.0, 71.0, -20816.0),
+        Location:new(world, 19551.0, 71.0, -20815.0),
+        Location:new(world, 19550.0, 71.0, -20819.0),
+        Location:new(world, 19550.0, 71.0, -20818.0),
+        Location:new(world, 19550.0, 71.0, -20817.0),
+        Location:new(world, 19550.0, 71.0, -20816.0),
+        Location:new(world, 19550.0, 71.0, -20815.0),
+        Location:new(world, 19549.0, 71.0, -20819.0),
+        Location:new(world, 19549.0, 71.0, -20818.0),
+        Location:new(world, 19549.0, 71.0, -20817.0),
+        Location:new(world, 19549.0, 71.0, -20816.0),
+        Location:new(world, 19549.0, 71.0, -20815.0),
+        Location:new(world, 19548.0, 71.0, -20818.0),
+        Location:new(world, 19548.0, 71.0, -20817.0),
+        Location:new(world, 19548.0, 71.0, -20816.0),
+
+};
+
+function spawn_er(data)
+        if current == maxData then
+                current = 1;
+        else
+                current = current + 1;
+        end
+        spawn_setAir4();
+end
+
+function spawn_setAir4()
+        for index, key in ipairs(blocks) do
+                key:setBlock(0, current);
+        end
+end
+
+function spawn_setGlass4()
+        for index, key in ipairs(blocks) do
+                key:setBlock(35, current);
+        end
+end
+
+registerHook("INTERACT", "spawn_setAir4", 143, "survival3", 19553.0, 72, -20817.0);
+registerHook("REGION_LEAVE", "spawn_setGlass4", "survival3-er_tp");
+
+
+------------------------------------------------
+----------------pvp portal-----------------
+------------------------------------------------
+
+local world = "survival3";
+local current = 2;
+local maxData = 2;
+local blocks = {
+        Location:new(world, 19566.0, 71.0, -20782.0),
+        Location:new(world, 19566.0, 71.0, -20781.0),
+        Location:new(world, 19566.0, 71.0, -20780.0),
+        Location:new(world, 19565.0, 71.0, -20783.0),
+        Location:new(world, 19565.0, 71.0, -20782.0),
+        Location:new(world, 19565.0, 71.0, -20781.0),
+        Location:new(world, 19565.0, 71.0, -20780.0),
+        Location:new(world, 19565.0, 71.0, -20779.0),
+        Location:new(world, 19564.0, 71.0, -20783.0),
+        Location:new(world, 19564.0, 71.0, -20782.0),
+        Location:new(world, 19564.0, 71.0, -20781.0),
+        Location:new(world, 19564.0, 71.0, -20780.0),
+        Location:new(world, 19564.0, 71.0, -20779.0),
+        Location:new(world, 19563.0, 71.0, -20783.0),
+        Location:new(world, 19563.0, 71.0, -20782.0),
+        Location:new(world, 19563.0, 71.0, -20781.0),
+        Location:new(world, 19563.0, 71.0, -20780.0),
+        Location:new(world, 19563.0, 71.0, -20779.0),
+        Location:new(world, 19566.0, 71.0, -20782.0),
+        Location:new(world, 19566.0, 71.0, -20781.0),
+        Location:new(world, 19566.0, 71.0, -20780.0),
+
+};
+
+function spawn_pvp(data)
+        if current == maxData then
+                current = 1;
+        else
+                current = current + 1;
+        end
+        spawn_setAir5();
+end
+
+function spawn_setAir5()
+        for index, key in ipairs(blocks) do
+                key:setBlock(0, current);
+        end
+end
+
+function spawn_setGlass5()
+        for index, key in ipairs(blocks) do
+                key:setBlock(35, current);
+        end
+end
+
+registerHook("INTERACT", "spawn_setAir5", 143, "survival3", 19567.0, 72, -20781.0);
+registerHook("REGION_LEAVE", "spawn_setGlass5", "survival3-pvp_tp");
+
+
+------------------------------------------------
+----------------wpvp portal-----------------
+------------------------------------------------
+
+local world = "survival3";
+local current = 2;
+local maxData = 2;
+local blocks = {
+        Location:new(world, 19552.0, 71.0, -20766.0),
+        Location:new(world, 19552.0, 71.0, -20765.0),
+        Location:new(world, 19552.0, 71.0, -20764.0),
+        Location:new(world, 19551.0, 71.0, -20767.0),
+        Location:new(world, 19551.0, 71.0, -20766.0),
+        Location:new(world, 19551.0, 71.0, -20765.0),
+        Location:new(world, 19551.0, 71.0, -20764.0),
+        Location:new(world, 19551.0, 71.0, -20763.0),
+        Location:new(world, 19550.0, 71.0, -20767.0),
+        Location:new(world, 19550.0, 71.0, -20766.0),
+        Location:new(world, 19550.0, 71.0, -20765.0),
+        Location:new(world, 19550.0, 71.0, -20764.0),
+        Location:new(world, 19550.0, 71.0, -20763.0),
+        Location:new(world, 19549.0, 71.0, -20767.0),
+        Location:new(world, 19549.0, 71.0, -20766.0),
+        Location:new(world, 19549.0, 71.0, -20765.0),
+        Location:new(world, 19549.0, 71.0, -20764.0),
+        Location:new(world, 19549.0, 71.0, -20763.0),
+        Location:new(world, 19548.0, 71.0, -20766.0),
+        Location:new(world, 19548.0, 71.0, -20765.0),
+        Location:new(world, 19548.0, 71.0, -20764.0),
+
+};
+
+function spawn_wpvp(data)
+        if current == maxData then
+                current = 1;
+        else
+                current = current + 1;
+        end
+        spawn_setAir6();
+end
+
+function spawn_setAir6()
+        for index, key in ipairs(blocks) do
+                key:setBlock(0, current);
+        end
+end
+
+function spawn_setGlass6()
+        for index, key in ipairs(blocks) do
+                key:setBlock(35, current);
+        end
+end
+
+registerHook("INTERACT", "spawn_setAir6", 143, "survival3", 19553.0, 72, -20765.0);
+registerHook("REGION_LEAVE", "spawn_setGlass6", "survival3-wpvp_tp");
