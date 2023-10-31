@@ -680,6 +680,7 @@ local world5 = World:new('azuren');
 local world6 = World:new('survival3_end');
 local world7 = World:new('pvparena');
 local world8 = World:new('wizardpvp');
+local world9 = World:new('survival3_nether');
 
 local creativetp = Location:new(world2, -14.190, 67.0, -13.673);
 creativetp:setYaw(-51.3);
@@ -708,6 +709,19 @@ ertp:setPitch(-0.0);
 local pvetp = Location:new(world4, 837.441, 97.0, 149.280);
 pvetp:setYaw(-1.2);
 pvetp:setPitch(5.1);
+
+local nethertp = Location:new(world9, 1.087, 65.0, -0.122);
+nethertp:setYaw(0.7);
+nethertp:setPitch(1.8);
+
+local endtp = Location:new(world6, 72.930, 59.0, -25.591);
+endtp:setYaw(73.5);
+endtp:setPitch(-6.6);
+
+local aztp = Location:new(world5, 10000.856, 65.0, 9998.979);
+aztp:setYaw(-3.0);
+aztp:setPitch(-0.6);
+
 
 function tp_creative(data)
              local player = Player:new(data.player);
@@ -750,6 +764,25 @@ function tp_pve(data)
              player:teleport(pvptp);
 
       end
+
+function tp_end(data)
+             local player = Player:new(data.player);
+             player:teleport(endtp);
+
+      end
+
+function tp_nether(data)
+             local player = Player:new(data.player);
+             player:teleport(nethertp);
+
+      end
+
+function tp_az(data)
+             local player = Player:new(data.player);
+             player:teleport(aztp);
+
+      end
+
 registerHook("REGION_ENTER", "tp_creative", "survival3-cr_tp");
 registerHook("REGION_ENTER", "tp_pvp", "survival3-pvp_tp");
 registerHook("REGION_ENTER", "tp_wpvp", "survival3-wpvp_tp");
@@ -757,3 +790,6 @@ registerHook("REGION_ENTER", "tp_spleef", "survival3-spleef_tp");
 registerHook("REGION_ENTER", "tp_pkr", "survival3-pkr_tp");
 registerHook("REGION_ENTER", "tp_er", "survival3-er_tp");
 registerHook("REGION_ENTER", "tp_pve", "survival3-pve_tp");
+registerHook("REGION_ENTER", "tp_end", "survival3-end_tp");
+registerHook("REGION_ENTER", "tp_nether", "survival3-nether_tp");
+registerHook("REGION_ENTER", "tp_azu", "survival3-azu_tp");
