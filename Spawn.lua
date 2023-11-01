@@ -25,14 +25,22 @@ registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
 ------Treehouse--
 ----------------------
 
+local function Mob(position, mobType)
+	local entity = Entity:new(position);
+	entity:spawn(mobType);
+	table.insert(entityList, entity);
+end
+
 local treehouse = Location:new(world, 19495.0, 96.0, -20846.4);
+local treehouse2 = Location:new(world, 19495.0, 98.0, -20846.4);
 
 function play_wait(data)
         local p = Player:new(data["player"]);
         treehouse:playSound('RECORD_WAIT', 1, 1);
+	Mob(treehouse2, "PARROT");
 end
 
-registerHook("INTERACT", "play_wait", 143, "survival3", 19497, 100, -20848);
+registerHook("REGION_ENTER", "play_wait", "survival3-parrot");
 
 
 -------------------
