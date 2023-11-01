@@ -826,3 +826,110 @@ registerHook("REGION_ENTER", "tp_pve", "survival3-pve_tp");
 registerHook("REGION_ENTER", "tp_end", "survival3-end_tp");
 registerHook("REGION_ENTER", "tp_nether", "survival3-nether_tp");
 registerHook("REGION_ENTER", "tp_azu", "survival3-azu_tp");
+
+
+------------------------------------------------
+----------------hol-----------------
+------------------------------------------------
+
+local world = "survival3";
+local current = 1;
+local maxData = 1;
+local blocks = {
+        Location:new(world, 19499, 81, -20788),
+        Location:new(world, 19499, 81, -20789),
+        Location:new(world, 19499, 81, -20790),
+        Location:new(world, 19499, 81, -20791),
+        Location:new(world, 19499, 81, -20792),
+        Location:new(world, 19499, 81, -20793),
+        Location:new(world, 19499, 81, -20794),
+	Location:new(world, 19500, 80, -20788),
+        Location:new(world, 19500, 80, -20789),
+        Location:new(world, 19500, 80, -20790),
+        Location:new(world, 19500, 80, -20791),
+        Location:new(world, 19500, 80, -20792),
+        Location:new(world, 19500, 80, -20793),
+        Location:new(world, 19500, 80, -20794),
+	Location:new(world, 19501, 79, -20788),
+        Location:new(world, 19501, 79, -20789),
+        Location:new(world, 19501, 79, -20790),
+        Location:new(world, 19501, 79, -20791),
+        Location:new(world, 19501, 79, -20792),
+        Location:new(world, 19501, 79, -20793),
+        Location:new(world, 19501, 79, -20794),
+	Location:new(world, 19502, 78, -20788),
+        Location:new(world, 19502, 78, -20789),
+        Location:new(world, 19502, 78, -20790),
+        Location:new(world, 19502, 78, -20791),
+        Location:new(world, 19502, 78, -20792),
+        Location:new(world, 19502, 78, -20793),
+        Location:new(world, 19502, 78, -20794),
+	Location:new(world, 19503, 77, -20788),
+        Location:new(world, 19503, 77, -20789),
+        Location:new(world, 19503, 77, -20790),
+        Location:new(world, 19503, 77, -20791),
+        Location:new(world, 19503, 77, -20792),
+        Location:new(world, 19503, 77, -20793),
+        Location:new(world, 19503, 77, -20794),
+	Location:new(world, 19504, 76, -20788),
+        Location:new(world, 19504, 76, -20789),
+        Location:new(world, 19504, 76, -20790),
+        Location:new(world, 19504, 76, -20791),
+        Location:new(world, 19504, 76, -20792),
+        Location:new(world, 19504, 76, -20793),
+        Location:new(world, 19504, 76, -20794),
+	Location:new(world, 19505, 75, -20788),
+        Location:new(world, 19505, 75, -20789),
+        Location:new(world, 19505, 75, -20790),
+        Location:new(world, 19505, 75, -20791),
+        Location:new(world, 19505, 75, -20792),
+        Location:new(world, 19505, 75, -20793),
+        Location:new(world, 19505, 75, -20794),
+	Location:new(world, 19506, 74, -20788),
+        Location:new(world, 19506, 74, -20789),
+        Location:new(world, 19506, 74, -20790),
+        Location:new(world, 19506, 74, -20791),
+        Location:new(world, 19506, 74, -20792),
+        Location:new(world, 19506, 74, -20793),
+        Location:new(world, 19506, 74, -20794),
+	Location:new(world, 19507, 73, -20788),
+        Location:new(world, 19507, 73, -20789),
+        Location:new(world, 19507, 73, -20790),
+        Location:new(world, 19507, 73, -20791),
+        Location:new(world, 19507, 73, -20792),
+        Location:new(world, 19507, 73, -20793),
+        Location:new(world, 19507, 73, -20794),
+	Location:new(world, 19508, 72, -20788),
+        Location:new(world, 19508, 72, -20789),
+        Location:new(world, 19508, 72, -20790),
+        Location:new(world, 19508, 72, -20791),
+        Location:new(world, 19508, 72, -20792),
+        Location:new(world, 19508, 72, -20793),
+        Location:new(world, 19508, 72, -20794),
+        
+
+};
+
+function spawn_hol(data)
+        if current == maxData then
+                current = 1;
+        else
+                current = current + 1;
+        end
+        spawn_setAir7();
+end
+
+function spawn_setAir7()
+        for index, key in ipairs(blocks) do
+                key:setBlock(0, current);
+        end
+end
+
+function spawn_setstairs()
+        for index, key in ipairs(blocks) do
+                key:setBlock(109, current);
+        end
+end
+
+registerHook("REGION_ENTER", "spawn_setAir7", "survival3-hol_door");
+registerHook("INTERACT", "spawn_setstairs", 143, "survival3", 19511.0, 73, -20786.0);
