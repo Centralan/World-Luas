@@ -6,9 +6,27 @@ local world6 = World:new('survival3_end');
 local world7 = World:new('pvparena');
 local world8 = World:new('wizardpvp');
 
+---------------------------
+----------messaging--------
+---------------------------
+
+function spawn_whisper(npc, msg, player)
+	p:sendMessage('&f&c' .. npc .. '&f' .. msg);
+end
+
 -------------------
 -----Sounds--------
 -------------------
+
+local stairs = Location:new(world, 19511.481, 72.0, -20795;
+
+function stairs_spawn(data)
+	local p = Player:new(data["player"]);
+	p:sendMessage("&6A Staircase to the hall appears.");
+	stairs:playSound('ITEM_TOTEM_USE', 1, 0.1);
+end
+
+registerHook("INTERACT", "stairs_spawn", 143, "survival3", 19511.0, 73, -20796.0);
 
 --------------------
 ------gamemode check--
@@ -931,5 +949,11 @@ function spawn_setstairs()
         end
 end
 
+local world = World:new('survival3');
+
+function spawn_whisper_good(npc, msg, player)
+	p:sendMessage('&f&c' .. npc .. '&f' .. msg);
+end
+
 registerHook("REGION_ENTER", "spawn_setAir7", "survival3-hol_door");
-registerHook("INTERACT", "spawn_setstairs", 143, "survival3", 19511.0, 73, -20786.0);
+registerHook("INTERACT", "spawn_setstairs", 143, "survival3", 19511.0, 73, -20796.0);
