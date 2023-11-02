@@ -102,8 +102,7 @@ function cat_day(data)
 		local message = data.message;
                 if hasPrefix(message, "cat day") then
 		            local playerName = splitPlayerName(message, 16);
-                cat:speak( ..player.name .. " has made it day. Praise the sun!");
-                creativesound:playSound('ENTITY_CAT_PURREOW', 100, 1);
+		            creativesound:playSound('ENTITY_CAT_PURREOW', 100, 1);
 		            myWorld4:setTime(0);
 	end	
 end
@@ -113,10 +112,8 @@ function cat_night(data)
 		local message = data.message;
             if hasPrefix(message, "cat night") then
 		        local playerName = splitPlayerName(message, 16);
-	              player:sendMessage("Â§aIt's now nighttime!");
-                cat:speak( ..player.name .. " has made it day. Praise the sun!");
-                creativesound:playSound('ENTITY_CAT_PURREOW', 100, 1);
-		            myWorld4:setTime(14000);
+                        creativesound:playSound('ENTITY_CAT_PURREOW', 100, 1);
+		        myWorld4:setTime(14000);
 	end	
 end
 
