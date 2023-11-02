@@ -19,6 +19,7 @@ end
 -------------------
 
 local stairs = Location:new(world, 19511.481, 72.0, -20795;
+local stairs2 = Location:new(world, 19516. 70, -20771;
 
 function stairs_spawn(data)
 	local p = Player:new(data["player"]);
@@ -27,6 +28,14 @@ function stairs_spawn(data)
 end
 
 registerHook("INTERACT", "stairs_spawn", 143, "survival3", 19511.0, 73, -20796.0);
+
+function stair_mine(data)
+	local p = Player:new(data["player"]);
+	p:sendMessage("&6A staircase opens nearby..");
+	stairs2:playSound('ENTITY_ILLUSION_ILLAGER_AMBIENT', 1, 1);
+end
+
+registerHook("INTERACT", "stairs_mine", 143, "survival3", 19517, 69, -20769);
 
 --------------------
 ------gamemode check--
@@ -948,12 +957,55 @@ function spawn_setstairs()
                 key:setBlock(109, current);
         end
 end
-
-local world = World:new('survival3');
-
-function spawn_whisper_good(npc, msg, player)
-	p:sendMessage('&f&c' .. npc .. '&f' .. msg);
-end
-
+		
 registerHook("REGION_ENTER", "spawn_setAir7", "survival3-hol_door");
 registerHook("INTERACT", "spawn_setstairs", 143, "survival3", 19511.0, 73, -20796.0);
+		
+------------------------------------------------
+----------------mine-----------------
+------------------------------------------------
+
+local world = "survival3";
+local current = 1;
+local maxData = 1;
+local blocks = {
+        Location:new(world, 19528, 68, -20770),
+        Location:new(world, 19527, 68, -20770),
+        Location:new(world, 19526, 68, -20770),
+        Location:new(world, 19528, 68, -20769),
+        Location:new(world, 19527, 68, -20769),
+        Location:new(world, 19526, 68, -20769),
+        Location:new(world, 19528, 68, -20768),
+        Location:new(world, 19527, 68, -20768),
+        Location:new(world, 19526, 68, -20768),
+        Location:new(world, 19528, 68, -20767),
+        Location:new(world, 19527, 68, -20767),
+        Location:new(world, 19526, 68, -20767),
+
+
+};
+
+function spawn_mine(data)
+        if current == maxData then
+                current = 1;
+        else
+                current = current + 1;
+        end
+        spawn_setAir8();
+end
+
+function spawn_setAir8()
+        for index, key in ipairs(blocks) do
+                key:setBlock(0, current);
+        end
+end
+
+function spawn_setstone()
+        for index, key in ipairs(blocks) do
+                key:setBlock(98, current);
+        end
+end
+		
+registerHook("REGION_ENTER", "spawn_setAir8", "survival3-mine_door");
+registerHook("INTERACT", "spawn_setAir8", 143, "survival3", 19517, 69, -20769);
+		
