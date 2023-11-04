@@ -14,6 +14,38 @@ function spawn_whisper(npc, msg, player)
 	p:sendMessage('&f&c' .. npc .. '&f' .. msg);
 end
 
+----------------------------------
+----------Customer Service--------
+----------------------------------
+
+local buttonPlayers = {};
+local buttonResetTimer = Timer:new("button_reset_chest", 20 * 60 * 5);
+local buttonResetTimerRunning = false;
+
+function helmet_reset_chest()
+	buttonPlayers = {};
+	buttonResetTimerRunning = false;
+end
+
+local dog = AI:new("DOG", "AI", "survival3");
+local market = Location:new(world, 19474.0, 73.0, -20781);
+
+function service_button(data)
+	local player = Player:new(data.player);
+	if not  buttonPlayers[player.name] then
+	dog:speak("Player support needed in the market.");
+	market:playSound('ENTITY_PLAYER_LEVELUP', 100, 2);
+	buttonPlayers[player.name] = true;
+		
+        if not buttonResetTimerRunning then
+                        buttonResetTimerRunning = true;
+                        buttonResetTimer:start();
+                end
+        end
+end
+
+registerHook("INTERACT", "service_button", 143, "survival3", 19474.0, 73.0, -20781);
+
 -------------------
 -----Sounds--------
 -------------------
