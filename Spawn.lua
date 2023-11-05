@@ -64,7 +64,7 @@ function stairs_spawn(data)
 	stairs:playSound('ITEM_TOTEM_USE', 1, 0.1);
 end
 
-registerHook("INTERACT", "stairs_spawn", 143, "survival3", 19511.0, 73, -20796.0);
+registerHook("REGION_ENTER", "stairs_spawn", "survival3-hol_door");
 
 function stair_mine(data)
 	local p = Player:new(data["player"]);
@@ -697,7 +697,7 @@ function spawn_setstairs()
 end
 		
 registerHook("REGION_ENTER", "spawn_setAir7", "survival3-hol_door");
-registerHook("INTERACT", "spawn_setstairs", 143, "survival3", 19511.0, 73, -20796.0);
+registerHook("REGION_ENTER", "spawn_setstairs", "survival3-hol_stairs");
 		
 ------------------------------------------------
 ----------------mine-----------------
