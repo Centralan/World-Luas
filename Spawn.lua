@@ -372,403 +372,106 @@ end
 registerHook("REGION_ENTER", "spawn_anvils", "survival3-market1");
 registerHook("REGION_ENTER", "spawn_anvils", "survival3-market2");
 
-------------------------------------------------
-----------------pve portal----------------------
-------------------------------------------------
+------------------------------------------------------------
+--------------Portals by:mortenn----------------------------
+------------------------------------------------------------
+		
+-- spawn portals
 
-local world = "survival3";
-local current = 2;
-local maxData = 2;
-local blocks = {
-        Location:new(world, 19560.0, 71.0, -20773.0),
-        Location:new(world, 19560.0, 71.0, -20772.0),
-        Location:new(world, 19560.0, 71.0, -20771.0),
-        Location:new(world, 19559.0, 71.0, -20774.0),
-        Location:new(world, 19559.0, 71.0, -20773.0),
-        Location:new(world, 19559.0, 71.0, -20772.0),
-        Location:new(world, 19559.0, 71.0, -20771.0),
-        Location:new(world, 19559.0, 71.0, -20770.0),
-        Location:new(world, 19558.0, 71.0, -20774.0),
-        Location:new(world, 19558.0, 71.0, -20773.0),
-        Location:new(world, 19558.0, 71.0, -20772.0),
-        Location:new(world, 19558.0, 71.0, -20771.0),
-        Location:new(world, 19558.0, 71.0, -20770.0),
-        Location:new(world, 19557.0, 71.0, -20774.0),
-        Location:new(world, 19557.0, 71.0, -20773.0),
-        Location:new(world, 19557.0, 71.0, -20772.0),
-        Location:new(world, 19557.0, 71.0, -20771.0),
-        Location:new(world, 19557.0, 71.0, -20770.0),
-        Location:new(world, 19556.0, 71.0, -20773.0),
-        Location:new(world, 19556.0, 71.0, -20772.0),
-        Location:new(world, 19556.0, 71.0, -20771.0),
+local portal_blocks = {};
+local portal_regions = {};
 
-};
-
-function spawn_pve(data)
-        if current == maxData then
-                current = 1;
-        else
-                current = current + 1;
-        end
-        spawn_setAir();
+function spawn_portal(name, region, itemId, world, x, y, z)
+        portal_blocks[x..','..y..','..z..'@'..world] = {
+                Location:new(world, x-1.0, y-1.0, z-1.0),
+                Location:new(world, x-1.0, y-1.0, z),
+                Location:new(world, x-1.0, y-1.0, z+1.0),
+                Location:new(world, x-2.0, y-1.0, z-2.0),
+                Location:new(world, x-2.0, y-1.0, z-1.0),
+                Location:new(world, x-2.0, y-1.0, z),
+                Location:new(world, x-2.0, y-1.0, z+1.0),
+                Location:new(world, x-2.0, y-1.0, z+2.0),
+                Location:new(world, x-3.0, y-1.0, z-2.0),
+                Location:new(world, x-3.0, y-1.0, z-1.0),
+                Location:new(world, x-3.0, y-1.0, z),
+                Location:new(world, x-3.0, y-1.0, z+1.0),
+                Location:new(world, x-3.0, y-1.0, z+2.0),
+                Location:new(world, x-4.0, y-1.0, z-2.0),
+                Location:new(world, x-4.0, y-1.0, z-1.0),
+                Location:new(world, x-4.0, y-1.0, z),
+                Location:new(world, x-4.0, y-1.0, z+1.0),
+                Location:new(world, x-4.0, y-1.0, z+2.0),
+                Location:new(world, x-5.0, y-1.0, z-1.0),
+                Location:new(world, x-5.0, y-1.0, z),
+                Location:new(world, x-5.0, y-1.0, z+1.0),
+        };
+        portal_regions[world .. '-' .. region] = x .. ',' .. y .. ',' .. z .. '@' .. world;
+        registerHook("INTERACT", 'spawn_portal_open', itemId, world, x, y, z);
+        registerHook("REGION_LEAVE", 'spawn_portal_close', world .. "-" .. region);
 end
 
-function spawn_setAir()
-        for index, key in ipairs(blocks) do
-                key:setBlock(0, current);
-        end
-end
-
-function spawn_setGlass()
-        for index, key in ipairs(blocks) do
-                key:setBlock(35, current);
+function spawn_portal_open(data)
+        EventEngine.debug.fine("Opening portal");
+        EventEngine.debug.fine(dump(data));
+        local name = data.x .. ',' .. data.y .. ',' .. data.z .. '@' .. data.world;
+        EventEngine.debug.fine("Portal name " .. name);
+        for index, key in ipairs(portal_blocks[name]) do
+                key:setBlock(0,0);
         end
 end
 
-registerHook("INTERACT", "spawn_setAir", 143, "survival3", 19561.0, 72, -20772.0);
-registerHook("REGION_LEAVE", "spawn_setGlass", "survival3-pve_tp");
-
-------------------------------------------------
-----------------creative portal-----------------
-------------------------------------------------
-
-local world = "survival3";
-local current = 2;
-local maxData = 2;
-local blocks = {
-        Location:new(world, 19568.0, 71.0, -20792.0),
-        Location:new(world, 19568.0, 71.0, -20791.0),
-        Location:new(world, 19568.0, 71.0, -20790.0),
-        Location:new(world, 19567.0, 71.0, -20793.0),
-        Location:new(world, 19567.0, 71.0, -20792.0),
-        Location:new(world, 19567.0, 71.0, -20791.0),
-        Location:new(world, 19567.0, 71.0, -20790.0),
-        Location:new(world, 19567.0, 71.0, -20789.0),
-        Location:new(world, 19566.0, 71.0, -20793.0),
-        Location:new(world, 19566.0, 71.0, -20792.0),
-        Location:new(world, 19566.0, 71.0, -20791.0),
-        Location:new(world, 19566.0, 71.0, -20790.0),
-        Location:new(world, 19566.0, 71.0, -20789.0),
-        Location:new(world, 19565.0, 71.0, -20793.0),
-        Location:new(world, 19565.0, 71.0, -20792.0),
-        Location:new(world, 19565.0, 71.0, -20791.0),
-        Location:new(world, 19565.0, 71.0, -20790.0),
-        Location:new(world, 19565.0, 71.0, -20789.0),
-        Location:new(world, 19564.0, 71.0, -20792.0),
-        Location:new(world, 19564.0, 71.0, -20791.0),
-        Location:new(world, 19564.0, 71.0, -20790.0),
-
-};
-
-function spawn_creative(data)
-        if current == maxData then
-                current = 1;
-        else
-                current = current + 1;
-        end
-        spawn_setAir1();
-end
-
-function spawn_setAir1()
-        for index, key in ipairs(blocks) do
-                key:setBlock(0, current);
+function spawn_portal_close(data)
+        EventEngine.debug.fine("Closing portal");
+        EventEngine.debug.fine(dump(data));
+        local name = portal_regions[data.world .. '-' .. data.region];
+        EventEngine.debug.fine("Closing portal " .. name);
+        for index, key in ipairs(portal_blocks[name]) do
+                key:setBlock(20,0);
         end
 end
 
-function spawn_setGlass1()
-        for index, key in ipairs(blocks) do
-                key:setBlock(35, current);
-        end
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
 end
 
-registerHook("INTERACT", "spawn_setAir1", 143, "survival3", 19569.0, 72, -20791.0);
-registerHook("REGION_LEAVE", "spawn_setGlass1", "survival3-creative_tp");
+--pve portal
 
-------------------------------------------------
-----------------pkr portal-----------------
-------------------------------------------------
+spawn_portal("pve", "pve_tp", 143, "survival3", 19561, 72, -20772);
 
-local world = "survival3";
-local current = 2;
-local maxData = 2;
-local blocks = {
-        Location:new(world, 19560.0, 71.0, -20811.0),
-        Location:new(world, 19560.0, 71.0, -20810.0),
-        Location:new(world, 19560.0, 71.0, -20809.0),
-        Location:new(world, 19559.0, 71.0, -20812.0),
-        Location:new(world, 19559.0, 71.0, -20811.0),
-        Location:new(world, 19559.0, 71.0, -20810.0),
-        Location:new(world, 19559.0, 71.0, -20809.0),
-        Location:new(world, 19559.0, 71.0, -20808.0),
-        Location:new(world, 19558.0, 71.0, -20812.0),
-        Location:new(world, 19558.0, 71.0, -20811.0),
-        Location:new(world, 19558.0, 71.0, -20810.0),
-        Location:new(world, 19558.0, 71.0, -20809.0),
-        Location:new(world, 19558.0, 71.0, -20808.0),
-        Location:new(world, 19557.0, 71.0, -20812.0),
-        Location:new(world, 19557.0, 71.0, -20811.0),
-        Location:new(world, 19557.0, 71.0, -20810.0),
-        Location:new(world, 19557.0, 71.0, -20809.0),
-        Location:new(world, 19557.0, 71.0, -20808.0),
-        Location:new(world, 19556.0, 71.0, -20811.0),
-        Location:new(world, 19556.0, 71.0, -20810.0),
-        Location:new(world, 19556.0, 71.0, -20809.0),
+--creative portal
 
-};
+spawn_portal("creative", "cr_tp", 143, "survival3", 19569, 72, -20791);
 
-function spawn_pkr(data)
-        if current == maxData then
-                current = 1;
-        else
-                current = current + 1;
-        end
-        spawn_setAir2();
-end
+--pkr portal
 
-function spawn_setAir2()
-        for index, key in ipairs(blocks) do
-                key:setBlock(0, current);
-        end
-end
+spawn_portal("pkr", "pkr_tp", 143, "survival3", 19561, 72, -20810);
 
-function spawn_setGlass2()
-        for index, key in ipairs(blocks) do
-                key:setBlock(35, current);
-        end
-end
+--spleef portal
 
-registerHook("INTERACT", "spawn_setAir2", 143, "survival3", 19561.0, 72, -20810.0);
-registerHook("REGION_LEAVE", "spawn_setGlass2", "survival3-pkr_tp");
+--spawn_portal("spleef", "spleef_tp", 143, "survival3", 19567, 72, -20801);
 
-------------------------------------------------
-----------------spleef portal-----------------
-------------------------------------------------
+--ER portal
 
-local world = "survival3";
-local current = 2;
-local maxData = 2;
-local blocks = {
-        Location:new(world, 19556.0, 71.0, -20802.0),
-        Location:new(world, 19556.0, 71.0, -20801.0),
-        Location:new(world, 19556.0, 71.0, -20800.0),
-        Location:new(world, 19565.0, 71.0, -20803.0),
-        Location:new(world, 19565.0, 71.0, -20802.0),
-        Location:new(world, 19565.0, 71.0, -20801.0),
-        Location:new(world, 19565.0, 71.0, -20800.0),
-        Location:new(world, 19565.0, 71.0, -20799.0),
-        Location:new(world, 19564.0, 71.0, -20803.0),
-        Location:new(world, 19564.0, 71.0, -20802.0),
-        Location:new(world, 19564.0, 71.0, -20801.0),
-        Location:new(world, 19564.0, 71.0, -20800.0),
-        Location:new(world, 19564.0, 71.0, -20799.0),
-        Location:new(world, 19563.0, 71.0, -20803.0),
-        Location:new(world, 19563.0, 71.0, -20802.0),
-        Location:new(world, 19563.0, 71.0, -20801.0),
-        Location:new(world, 19563.0, 71.0, -20800.0),
-        Location:new(world, 19563.0, 71.0, -20799.0),
-        Location:new(world, 19562.0, 71.0, -20802.0),
-        Location:new(world, 19562.0, 71.0, -20801.0),
-        Location:new(world, 19562.0, 71.0, -20800.0),
+spawn_portal("er", "er_tp", 143, "survival3", 19553, 72, -20817);
 
-};
+--pvp portal
 
-function spawn_spleef(data)
-        if current == maxData then
-                current = 1;
-        else
-                current = current + 1;
-        end
-        spawn_setAir3();
-end
+spawn_portal("pvp", "pvp_tp", 143, "survival3", 19567, 72, -20781);
 
-function spawn_setAir3()
-        for index, key in ipairs(blocks) do
-                key:setBlock(0, current);
-        end
-end
+--wpvp portal
 
-function spawn_setGlass3()
-        for index, key in ipairs(blocks) do
-                key:setBlock(35, current);
-        end
-end
+spawn_portal("wpvp", "wpvp_tp1", 143, "survival3", 19553, 72, -20765);
 
-registerHook("INTERACT", "spawn_setAir3", 143, "survival3", 19567.0, 72, -20801.0);
-registerHook("REGION_LEAVE", "spawn_setGlass3", "survival3-spleef_tp");
-
-
-------------------------------------------------
-----------------ER portal-----------------
-------------------------------------------------
-
-local world = "survival3";
-local current = 2;
-local maxData = 2;
-local blocks = {
-        Location:new(world, 19552.0, 71.0, -20818.0),
-        Location:new(world, 19552.0, 71.0, -20817.0),
-        Location:new(world, 19552.0, 71.0, -20816.0),
-        Location:new(world, 19551.0, 71.0, -20819.0),
-        Location:new(world, 19551.0, 71.0, -20818.0),
-        Location:new(world, 19551.0, 71.0, -20817.0),
-        Location:new(world, 19551.0, 71.0, -20816.0),
-        Location:new(world, 19551.0, 71.0, -20815.0),
-        Location:new(world, 19550.0, 71.0, -20819.0),
-        Location:new(world, 19550.0, 71.0, -20818.0),
-        Location:new(world, 19550.0, 71.0, -20817.0),
-        Location:new(world, 19550.0, 71.0, -20816.0),
-        Location:new(world, 19550.0, 71.0, -20815.0),
-        Location:new(world, 19549.0, 71.0, -20819.0),
-        Location:new(world, 19549.0, 71.0, -20818.0),
-        Location:new(world, 19549.0, 71.0, -20817.0),
-        Location:new(world, 19549.0, 71.0, -20816.0),
-        Location:new(world, 19549.0, 71.0, -20815.0),
-        Location:new(world, 19548.0, 71.0, -20818.0),
-        Location:new(world, 19548.0, 71.0, -20817.0),
-        Location:new(world, 19548.0, 71.0, -20816.0),
-
-};
-
-function spawn_er(data)
-        if current == maxData then
-                current = 1;
-        else
-                current = current + 1;
-        end
-        spawn_setAir4();
-end
-
-function spawn_setAir4()
-        for index, key in ipairs(blocks) do
-                key:setBlock(0, current);
-        end
-end
-
-function spawn_setGlass4()
-        for index, key in ipairs(blocks) do
-                key:setBlock(35, current);
-        end
-end
-
-registerHook("INTERACT", "spawn_setAir4", 143, "survival3", 19553.0, 72, -20817.0);
-registerHook("REGION_LEAVE", "spawn_setGlass4", "survival3-er_tp");
-
-
-------------------------------------------------
-----------------pvp portal-----------------
-------------------------------------------------
-
-local world = "survival3";
-local current = 2;
-local maxData = 2;
-local blocks = {
-        Location:new(world, 19566.0, 71.0, -20782.0),
-        Location:new(world, 19566.0, 71.0, -20781.0),
-        Location:new(world, 19566.0, 71.0, -20780.0),
-        Location:new(world, 19565.0, 71.0, -20783.0),
-        Location:new(world, 19565.0, 71.0, -20782.0),
-        Location:new(world, 19565.0, 71.0, -20781.0),
-        Location:new(world, 19565.0, 71.0, -20780.0),
-        Location:new(world, 19565.0, 71.0, -20779.0),
-        Location:new(world, 19564.0, 71.0, -20783.0),
-        Location:new(world, 19564.0, 71.0, -20782.0),
-        Location:new(world, 19564.0, 71.0, -20781.0),
-        Location:new(world, 19564.0, 71.0, -20780.0),
-        Location:new(world, 19564.0, 71.0, -20779.0),
-        Location:new(world, 19563.0, 71.0, -20783.0),
-        Location:new(world, 19563.0, 71.0, -20782.0),
-        Location:new(world, 19563.0, 71.0, -20781.0),
-        Location:new(world, 19563.0, 71.0, -20780.0),
-        Location:new(world, 19563.0, 71.0, -20779.0),
-        Location:new(world, 19566.0, 71.0, -20782.0),
-        Location:new(world, 19566.0, 71.0, -20781.0),
-        Location:new(world, 19566.0, 71.0, -20780.0),
-
-};
-
-function spawn_pvp(data)
-        if current == maxData then
-                current = 1;
-        else
-                current = current + 1;
-        end
-        spawn_setAir5();
-end
-
-function spawn_setAir5()
-        for index, key in ipairs(blocks) do
-                key:setBlock(0, current);
-        end
-end
-
-function spawn_setGlass5()
-        for index, key in ipairs(blocks) do
-                key:setBlock(35, current);
-        end
-end
-
-registerHook("INTERACT", "spawn_setAir5", 143, "survival3", 19567.0, 72, -20781.0);
-registerHook("REGION_LEAVE", "spawn_setGlass5", "survival3-pvp_tp");
-
-
-------------------------------------------------
-----------------wpvp portal-----------------
-------------------------------------------------
-
-local world = "survival3";
-local current = 2;
-local maxData = 2;
-local blocks = {
-        Location:new(world, 19552.0, 71.0, -20766.0),
-        Location:new(world, 19552.0, 71.0, -20765.0),
-        Location:new(world, 19552.0, 71.0, -20764.0),
-        Location:new(world, 19551.0, 71.0, -20767.0),
-        Location:new(world, 19551.0, 71.0, -20766.0),
-        Location:new(world, 19551.0, 71.0, -20765.0),
-        Location:new(world, 19551.0, 71.0, -20764.0),
-        Location:new(world, 19551.0, 71.0, -20763.0),
-        Location:new(world, 19550.0, 71.0, -20767.0),
-        Location:new(world, 19550.0, 71.0, -20766.0),
-        Location:new(world, 19550.0, 71.0, -20765.0),
-        Location:new(world, 19550.0, 71.0, -20764.0),
-        Location:new(world, 19550.0, 71.0, -20763.0),
-        Location:new(world, 19549.0, 71.0, -20767.0),
-        Location:new(world, 19549.0, 71.0, -20766.0),
-        Location:new(world, 19549.0, 71.0, -20765.0),
-        Location:new(world, 19549.0, 71.0, -20764.0),
-        Location:new(world, 19549.0, 71.0, -20763.0),
-        Location:new(world, 19548.0, 71.0, -20766.0),
-        Location:new(world, 19548.0, 71.0, -20765.0),
-        Location:new(world, 19548.0, 71.0, -20764.0),
-
-};
-
-function spawn_wpvp(data)
-        if current == maxData then
-                current = 1;
-        else
-                current = current + 1;
-        end
-        spawn_setAir6();
-end
-
-function spawn_setAir6()
-        for index, key in ipairs(blocks) do
-                key:setBlock(0, current);
-        end
-end
-
-function spawn_setGlass6()
-        for index, key in ipairs(blocks) do
-                key:setBlock(35, current);
-        end
-end
-
-registerHook("INTERACT", "spawn_setAir6", 143, "survival3", 19553.0, 72, -20765.0);
-registerHook("REGION_LEAVE", "spawn_setGlass6", "survival3-wpvp_tp");
-
-
-------------------Portal Warps
+------------------Unused Portal Warps
 
 local world = World:new('survival3');
 local world2 = World:new('Creative');
@@ -819,13 +522,11 @@ local aztp = Location:new(world5, 10000.856, 65.0, 9998.979);
 aztp:setYaw(-3.0);
 aztp:setPitch(-0.6);
 
-
 function tp_creative(data)
              local player = Player:new(data.player);
              player:teleport(creativetp);
 
       end
-
 function tp_pvp(data)
              local player = Player:new(data.player);
              player:teleport(pvptp);
@@ -880,16 +581,16 @@ function tp_az(data)
 
       end
 
-registerHook("REGION_ENTER", "tp_creative", "survival3-cr_tp");
-registerHook("REGION_ENTER", "tp_pvp", "survival3-pvp_tp");
-registerHook("REGION_ENTER", "tp_wpvp", "survival3-wpvp_tp");
-registerHook("REGION_ENTER", "tp_spleef", "survival3-spleef_tp");
-registerHook("REGION_ENTER", "tp_pkr", "survival3-pkr_tp");
-registerHook("REGION_ENTER", "tp_er", "survival3-er_tp");
-registerHook("REGION_ENTER", "tp_pve", "survival3-pve_tp");
-registerHook("REGION_ENTER", "tp_end", "survival3-end_tp");
-registerHook("REGION_ENTER", "tp_nether", "survival3-nether_tp");
-registerHook("REGION_ENTER", "tp_azu", "survival3-azu_tp");
+--registerHook("REGION_ENTER", "tp_creative", "survival3-cr_tp");
+--registerHook("REGION_ENTER", "tp_pvp", "survival3-pvp_tp");
+--registerHook("REGION_ENTER", "tp_wpvp", "survival3-wpvp_tp1");
+--registerHook("REGION_ENTER", "tp_spleef", "survival3-spleef_tp");
+--registerHook("REGION_ENTER", "tp_pkr", "survival3-pkr_tp");
+--registerHook("REGION_ENTER", "tp_ertp", "survival3-er_tp");
+--registerHook("REGION_ENTER", "tp_pve", "survival3-pve_tp");
+--registerHook("REGION_ENTER", "tp_end", "survival3-end_tp");
+--registerHook("REGION_ENTER", "tp_nether", "survival3-nether_tp");
+--registerHook("REGION_ENTER", "tp_az", "survival3-azu_tp");
 
 
 ------------------------------------------------
