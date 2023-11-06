@@ -14,6 +14,47 @@ function spawn_whisper(npc, msg, player)
 	p:sendMessage('&f&c' .. npc .. '&f' .. msg);
 end
 
+-----------------------------------------
+------------Chat Commands--------------
+-----------------------------------------
+
+local function hasPrefix(subject, prefix)
+	return string.sub(subject, 1, string.len(prefix)) == prefix;
+end
+
+local function splitPlayerName(message, len)
+	return string.sub(message, len, string.len(message));
+end
+
+function hol_admin_setstairs(data)
+	if data.player == "Centralan" or data.player == "Zozael" or data.player == "RainbowDeborah" then
+		local player = Player:new(data.player);
+		local message = data.message;
+		if hasPrefix(message, "#holset") then
+			local playerName = splitPlayerName(message, 16);
+			   for index, key in ipairs(holblocks) do
+                            key:setBlock(109, current);
+			end
+		end
+	end
+end
+
+function hol_admin_setair(data)
+	if data.player == "Centralan" or data.player == "Zozael" or data.player == "RainbowDeborah" then
+		local player = Player:new(data.player);
+		local message = data.message;
+		if hasPrefix(message, "#holair") then
+			local playerName = splitPlayerName(message, 16);
+			   for index, key in ipairs(holblocks) do
+                            key:setBlock(0, current);
+			end
+		end
+	end
+end
+
+registerHook("CHAT_MESSAGE", "hol_admin_setstairs", "survival3");
+registerHook("CHAT_MESSAGE", "hol_admin_setair", "survival3");
+
 ----------------------------------
 ----------Customer Service--------
 ----------------------------------
@@ -342,7 +383,7 @@ spawn_portal("pkr", "pkr_tp", 143, "survival3", 19561, 72, -20810);
 
 --spleef portal
 
---spawn_portal("spleef", "spleef_tp", 143, "survival3", 19567, 72, -20801);
+spawn_portal("spleef", "spleef_tp", 143, "survival3", 19567, 72, -20801);
 
 --ER portal
 
