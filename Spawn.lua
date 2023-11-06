@@ -193,154 +193,39 @@ registerHook("REGION_ENTER", "shop_secret2", "survival3-shop_secret_2");
 -----Free Gear-----
 -------------------
 
-local helmet = Location:new(world, 19550.0, 64.0, -20797.0);
-local chest = Location:new(world, 19548.0, 64.0, -20797.0);
-local legs = Location:new(world, 19546.0, 64.0, -20797.0);
-local boots = Location:new(world, 19544.0, 64.0, -20797.0);
-local sword = Location:new(world, 19542.0, 64.0, -20797.0);
+local freegear = Location:new(world, 19542.0, 64.0, -20797.0);
 
-local helmetChestPlayers = {};
-local helmetChestResetTimer = Timer:new("helmet_reset_chest", 200 * 600 * 50);
-local helmetChestResetTimerRunning = false;
-local helmetChestOpen = Location:new(myWorld3, 19550.0, 64.0, -20797.0);
+local FreeGearChestPlayers = {};
+local FreeGearChestResetTimer = Timer:new("free_reset_chest", 200 * 600 * 50);
+local FreeGearChestResetTimerRunning = false;
+local FreeGearChestOpen = Location:new(world, 19550.0, 64.0, -20797.0);
 
-local chestChestPlayers = {};
-local chestChestResetTimer = Timer:new("chest_reset_chest", 200 * 600 * 50);
-local chestChestResetTimerRunning = false;
-local chesttChestOpen = Location:new(myWorld3, 19548.0, 64.0, -20797.0);
 
-local legsChestPlayers = {};
-local legsChestResetTimer = Timer:new("legs_reset_chest", 200 * 600 * 50);
-local legsChestResetTimerRunning = false;
-local legsChestOpen = Location:new(myWorld3, 19546.0, 64.0, -20797.0);
-
-local bootsChestPlayers = {};
-local bootsChestResetTimer = Timer:new("boots_reset_chest", 200 * 600 * 50);
-local bootsChestResetTimerRunning = false;
-local bootsChestOpen = Location:new(myWorld3, 19544.0, 64.0, -20797.0);
-
-local swordChestPlayers = {};
-local swordChestResetTimer = Timer:new("sword_reset_chest", 200 * 600 * 50);
-local swordChestResetTimerRunning = false;
-local swordChestOpen = Location:new(myWorld3, 19542.0, 64.0, -20797.0);
-
-function helmet_reset_chest()
-	helmetChestPlayers = {};
-	helmetChestResetTimerRunning = false;
+function free_reset_chest()
+	FreeGearChestPlayers = {};
+	FreeGearChestResetTimerRunning = false;
 end
 
-function chest_reset_chest()
-	chestChestPlayers = {};
-	chestChestResetTimerRunning = false;
-end
 
-function legs_reset_chest()
-	legsChestPlayers = {};
-	bootsChestResetTimerRunning = false;
-end
-
-function legs_reset_chest()
-	legsChestPlayers = {};
-	legsChestResetTimerRunning = false;
-end
-
-function sword_reset_chest()
-	swordChestPlayers = {};
-	swordChestResetTimerRunning = false;
-end
-
-function helmet_1(data)
+function free_1(data)
         local player = Player:new(data.player);
-        if not  helmetChestPlayers[player.name] then
-                helmet:cloneChestToPlayer(player.name);
+        if not  FreeGearChestPlayers[player.name] then
+                freegear:cloneChestToPlayer(player.name);
                 player:closeInventory();
-                helmetChestPlayers[player.name] = true;
-		player:sendMessage("&a Free helment purchased!");
-		player:sendMessage("&c You're been placed on a cooldown for this armour, better not lose it.");
+                FreeGearChestPlayers[player.name] = true;
+		player:sendMessage("&c You're been placed on a cooldown for this gear, better not lose it.");
 
-                if not helmetChestResetTimerRunning then
-                        helmetChestResetTimerRunning = true;
-                        helmetChestResetTimer:start();
+                if not FreeGearChestResetTimerRunning then
+                        FreeGearChestResetTimerRunning = true;
+                        FreeGearChestResetTimer:start();
                 end
         end
 end
 
-function chest_1(data)
-        local player = Player:new(data.player);
-        if not  chestChestPlayers[player.name] then
-                chest:cloneChestToPlayer(player.name);
-                player:closeInventory();
-                chestChestPlayers[player.name] = true;
-		player:sendMessage("&a Free chestplate purchased!");
-		player:sendMessage("&c You're been placed on a cooldown for this armour, better not lose it.");
 
-                if not chestChestResetTimerRunning then
-                        chestChestResetTimerRunning = true;
-                        chestChestResetTimer:start();
-                end
-        end
-end
-
-function legs_1(data)
-        local player = Player:new(data.player);
-        if not  legsChestPlayers[player.name] then
-                legs:cloneChestToPlayer(player.name);
-                player:closeInventory();
-                legsChestPlayers[player.name] = true;
-		player:sendMessage("&a Free leggings purchased!");
-		player:sendMessage("&c You're been placed on a cooldown for this armour, better not lose it.");
-
-                if not legsChestResetTimerRunning then
-                        legsChestResetTimerRunning = true;
-                        legsChestResetTimer:start();
-                end
-        end
-end
-
-function boots_1(data)
-        local player = Player:new(data.player);
-        if not  bootsChestPlayers[player.name] then
-                boots:cloneChestToPlayer(player.name);
-                player:closeInventory();
-                bootsChestPlayers[player.name] = true;
-		player:sendMessage("&a Free boots purchased!");
-		player:sendMessage("&c You're been placed on a cooldown for this armour, better not lose it.");
-
-                if not bootsChestResetTimerRunning then
-                        bootsChestResetTimerRunning = true;
-                        bootsChestResetTimer:start();
-                end
-        end
-end
-
-function sword_1(data)
-        local player = Player:new(data.player);
-        if not  swordChestPlayers[player.name] then
-                sword:cloneChestToPlayer(player.name);
-                player:closeInventory();
-                swordChestPlayers[player.name] = true;
-		player:sendMessage("&a Free sword purchased!");
-		player:sendMessage("&c You're been placed on a cooldown for this weapon, better not lose it.");
-
-                if not swordChestResetTimerRunning then
-                        swordChestResetTimerRunning = true;
-                        swordChestResetTimer:start();
-                end
-        end
-end
-registerHook("INTERACT", "helmet_1", 143, "survival3", 19537.0, 71.0, -20733.0);
-registerHook("INTERACT", "chest_1", 143, "survival3", 19536.0, 71.0, -20733.0);
-registerHook("INTERACT", "legs_1", 143, "survival3", 19535.0, 71.0, -20733.0);
-registerHook("INTERACT", "boots_1", 143, "survival3", 19534.0, 71.0, -20733.0);
-registerHook("INTERACT", "boots_1", 143, "survival3", 19533.0, 71.0, -20733.0);
-registerHook("INTERACT", "helmet_1", 143, "survival3", 19533.0, 71.0, -20849.0);
-registerHook("INTERACT", "chest_1", 143, "survival3", 19534.0, 71.0, -20849.0);
-registerHook("INTERACT", "legs_1", 143, "survival3", 19535.0, 71.0, -20849.0);
-registerHook("INTERACT", "boots_1", 143, "survival3", 19536.0, 71.0, -20849.0);
-registerHook("INTERACT", "boots_1", 143, "survival3", 19537.0, 71.0, -20849.0);
-registerHook("INTERACT", "sword_1", 143, "survival3", 19537.0, 71, -20849.0);
-registerHook("INTERACT", "sword_1", 143, "survival3", 19533.0, 71, -20733.0);
-
+registerHook("REGION_ENTER", "free_1", "survival3-freegear1")
+registerHook("REGION_ENTER", "free_1", "survival3-freegear2")
+		
 -------------------------------
 ---------Anvils---------------
 ------------------------------
