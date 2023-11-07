@@ -126,6 +126,66 @@ end
 
 registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
 
+-------------------------
+-----Lounge---------
+-------------------------
+		
+local loungeE = Location:new(world, 19491.0, 87.0, -20779.0);
+		
+function lounge_welcome(data)
+        local p = Player:new(data["player"]);
+        p:sendMessage("&6The Lounge reacts to your presance.");
+	stairs:playSound('ITEM_BOTTLE_FILL_DRAGONBREATH', 1, 1);
+end
+
+registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_enter");
+		
+-------------------------
+-----Lounge Fire---------
+-------------------------
+		
+local world = "survival3";
+local firecurrent = 0;
+local firemaxData = 0;
+local fireblocks = {
+        Location:new(world, 19488.0, 86.0, -20796.0),
+        Location:new(world, 19488.0, 86.0, -20795.0),
+        Location:new(world, 19488.0, 86.0, -20794.0),
+        Location:new(world, 19488.0, 86.0, -20793.0),
+        Location:new(world, 19488.0, 86.0, -20792.0),
+        Location:new(world, 19488.0, 86.0, -20791.0),
+	Location:new(world, 19488.0, 86.0, -20790.0),
+	Location:new(world, 19488.0, 86.0, -20789.0),
+	Location:new(world, 19488.0, 86.0, -20788.0),
+        Location:new(world, 19488.0, 86.0, -20787.0),
+
+};
+
+function lounge_enter(data)
+        if firecurrent == firemaxData then
+                firecurrent = 1;
+        else
+                firecurrent = firecurrent + 1;
+        end
+        lounge_leave();
+end
+
+function lounge_leave()
+        for index, key in ipairs(fireblocks) do
+                key:setBlock(0, firecurrent);
+        end
+end
+
+function lounge_fire()
+        for index, key in ipairs(fireblocks) do
+                key:setBlock(51, firecurrent);
+        end
+end
+
+registerHook("REGION_ENTER", "lounge_fire", "survival3-lounge_enter");
+registerHook("REGION_ENTER", "lounge_fire", "survival3-lounge_leave");
+registerHook("REGION_LEAVE", "lounge_leave", "survival3-lounge_leave");
+
 ----------------------
 ------Treehouse--
 ----------------------
