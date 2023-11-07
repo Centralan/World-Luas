@@ -134,7 +134,7 @@ local loungeE = Location:new(world, 19491.0, 87.0, -20779.0);
 		
 function lounge_welcome(data)
         local p = Player:new(data["player"]);
-        p:sendMessage("&6The Lounge reacts to your presance.");
+        player:sendMessage( player.name .. "&5The lounge reacts to you.");
 	stairs:playSound('ITEM_BOTTLE_FILL_DRAGONBREATH', 1, 1);
 end
 
