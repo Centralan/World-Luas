@@ -132,6 +132,16 @@ registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
 		
 local loungeE = Location:new(world, 19491.0, 87.0, -20779.0);
 local lounge1 = Location:new(world, 19490.0, 84.0, -20778.0);
+
+local catclubPlayers = {};
+local catclubResetTimer = Timer:new("catclub_reset", 10 * 10 * 10);
+local catclubResetTimerRunning = false;
+
+
+function catclub_reset()
+	catclubPlayers = {};
+	catclubResetTimerRunning = false;
+end
 		
 function lounge_welcome(data)
         local p = Player:new(data["player"]);
@@ -140,13 +150,22 @@ function lounge_welcome(data)
 end
 
 function lounge_music1(data)
-        local p = Player:new(data["player"]);
-	lounge1:playSound('RECORD_STAL', 1, 1);
+        local player = Player:new(data.player);
+        if not  catclubPlayers[player.name] then
+	lounge1:playSound('RECORD_STAL', 0.1, 1);
 end
 
 function lounge_music2(data)
-        local p = Player:new(data["player"]);
-	lounge1:playSound('RECORD_CHIRP', 1, 1);
+        local player = Player:new(data.player);
+        if not  catclubPlayers[player.name] then
+	lounge1:playSound('RECORD_CHIRP', 0.1, 1);
+end
+
+if not catclubResetTimerRunning then
+                        catclubResetTimerRunning = true;
+                        catclubResetTimer:start();
+                end
+        end
 end
 
 registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_enter");
