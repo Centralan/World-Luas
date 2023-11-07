@@ -131,6 +131,7 @@ registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
 -------------------------
 		
 local loungeE = Location:new(world, 19491.0, 87.0, -20779.0);
+local lounge1 = Location:new(world, 19490.0, 84.0, -20778.0);
 		
 function lounge_welcome(data)
         local p = Player:new(data["player"]);
@@ -138,7 +139,19 @@ function lounge_welcome(data)
 	stairs:playSound('ITEM_BOTTLE_FILL_DRAGONBREATH', 1, 1);
 end
 
+function lounge_music1(data)
+        local p = Player:new(data["player"]);
+	lounge1:playSound('RECORD_STAL', 1, 1);
+end
+
+function lounge_music2(data)
+        local p = Player:new(data["player"]);
+	lounge1:playSound('RECORD_CHIRP', 1, 1);
+end
+
 registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_enter");
+registerHook("INTERACT", "lounge_music1", 143, "survival3", 19488.0, 83.0, -20780.0);
+registerHook("INTERACT", "lounge_music2", 143, "survival3", 19488.0, 83.0, -20776.0);
 		
 -------------------------
 -----Lounge Fire---------
@@ -160,6 +173,7 @@ local fireblocks = {
         Location:new(world, 19488.0, 86.0, -20787.0),
 
 };
+		
 
 function lounge_enter(data)
         if firecurrent == firemaxData then
@@ -182,9 +196,61 @@ function lounge_fire()
         end
 end
 
+
 registerHook("REGION_ENTER", "lounge_fire", "survival3-lounge_enter");
 registerHook("REGION_ENTER", "lounge_fire", "survival3-lounge_leave");
 registerHook("REGION_LEAVE", "lounge_leave", "survival3-lounge_leave");
+
+-------------------------
+-----Lounge Redstone---------
+-------------------------
+		
+local world = "survival3";
+local redcurrent = 1;
+local redmaxData = 1;
+local redblocks = {
+        Location:new(world, 19489.0, 91.0, -20775.0),
+	Location:new(world, 19486.0, 91.0, -20775.0),
+	Location:new(world, 19483.0, 91.0, -20775.0),
+	Location:new(world, 19480.0, 91.0, -20775.0),
+	Location:new(world, 19477.0, 91.0, -20775.0),
+	Location:new(world, 19489.0, 91.0, -20778.0),
+	Location:new(world, 19483.0, 91.0, -20778.0),
+	Location:new(world, 19477.0, 91.0, -20778.0),
+	Location:new(world, 19489.0, 91.0, -20779.0),
+	Location:new(world, 19483.0, 91.0, -20779.0),
+	Location:new(world, 19477.0, 91.0, -20779.0),
+	Location:new(world, 19489.0, 91.0, -20782.0),
+	Location:new(world, 19486.0, 91.0, -20782.0),
+        Location:new(world, 19483.0, 91.0, -20782.0),
+        Location:new(world, 19480.0, 91.0, -20782.0),
+	Location:new(world, 19477.0, 91.0, -20782.0),
+};
+
+function lounge_enter2(data)
+        if redcurrent == redmaxData then
+                redcurrent = 1;
+        else
+                redcurrent = redcurrent + 1;
+        end
+        lounge_leave2();
+end
+
+function lounge_leave2()
+        for index, key in ipairs(redblocks) do
+                key:setBlock(0, redcurrent);
+        end
+end
+
+function lounge_redstone()
+        for index, key in ipairs(redblocks) do
+                key:setBlock(152, redcurrent);
+        end
+end
+
+registerHook("REGION_ENTER", "lounge_redstone", "survival3-lounge_enter");
+registerHook("REGION_ENTER", "lounge_redstone", "survival3-lounge_leave");
+registerHook("REGION_LEAVE", "lounge_leave2", "survival3-lounge_leave");
 
 ----------------------
 ------Treehouse--
