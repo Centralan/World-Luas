@@ -78,7 +78,7 @@ local market = Location:new(world, 19474.0, 73.0, -20781);
 function service_button(data)
 	local player = Player:new(data.player);
 	if not  buttonPlayers[player.name] then
-	dog:speak("Player support needed in the market.");
+	dog:speak( player.name .. " needs support in the market.");
 	player:sendMessage("&aIf an Admin is available they will be here shortly.");
 	market:playSound('ENTITY_PLAYER_LEVELUP', 100, 2);
 	buttonPlayers[player.name] = true;
