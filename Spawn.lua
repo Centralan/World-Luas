@@ -132,21 +132,30 @@ registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
 		
 local loungeE = Location:new(world, 19491.0, 87.0, -20779.0);
 local lounge1 = Location:new(world, 19490.0, 84.0, -20778.0);
+local lounge1_strikeLocation1 = Location:new("survival3", 19488, 85, -20796);
+local lounge2_strikeLocation2 = Location:new("survival3", 19488, 85, -20787);
 
 local catclubPlayers = {};
-local catclubResetTimer = Timer:new("catclub_reset", 10 * 10 * 10);
+local catclubResetTimer = Timer:new("catclub_reset", 100 * 10 * 10);
 local catclubResetTimerRunning = false;
 
-
 function catclub_reset()
-	catclubPlayers = {};
-	catclubResetTimerRunning = false;
+        catclubPlayers = {};
+        catclubResetTimerRunning = false;
 end
-		
+
 function lounge_welcome(data)
-        local p = Player:new(data["player"]);
-        player:sendMessage( player.name .. "&5The lounge reacts to you.");
-	stairs:playSound('ITEM_BOTTLE_FILL_DRAGONBREATH', 1, 1);
+        if data.player == "Centralan" or data.player == "Zozael" or data.player == "RainbowDeborah" or data.player == "docpify" or data.player == "Kruithne" or data.player == "Branterson" or data.player == "TracerON" or data.player == "Willopillo" or data.player == "Max8abug" then
+          local player = Player:new(data.player);
+                player:sendMessage( "&5The lounge reacts to you.");
+                loungeE:playSound('ITEM_BOTTLE_FILL_DRAGONBREATH', 1, 1);
+        else
+           local player = Player:new(data.player);
+                dog:speak( player.name .. " has broken into the lounge, exterminating. ");
+                lounge1_strikeLocation1:lightningStrike();
+                lounge2_strikeLocation2:lightningStrike();
+                player:kill();
+end
 end
 
 function lounge_music1(data)
@@ -168,28 +177,9 @@ if not catclubResetTimerRunning then
         end
 end
 
-registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_enter");
+registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_leave");
 registerHook("INTERACT", "lounge_music1", 143, "survival3", 19488.0, 83.0, -20780.0);
 registerHook("INTERACT", "lounge_music2", 143, "survival3", 19488.0, 83.0, -20776.0);
-
-------------------------------------
------Lounge Security System---------
-------------------------------------
-
-local lounge1_strikeLocation1 = Location:new("survival3", 19488, 85, -20796);
-local lounge2_strikeLocation2 = Location:new("survival3", 19488, 85, -20787);
-		
-function kill_ai(data)
-	if data.player == "PapaPetes" then
-		local player = Player:new(data.player);
-		dog:speak( player.name .. " has broken into the lounge, exterminating. ");
-		lounge1_strikeLocation1:lightningStrike();
-                lounge2_strikeLocation2:lightningStrike();
-                player:kill();
-	end
-end
-				
-registerHook("REGION_ENTER", "kill_ai", "survival3-lounge_leave");	
 		
 -------------------------
 -----Lounge Fire---------
