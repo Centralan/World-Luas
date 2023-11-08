@@ -171,6 +171,25 @@ end
 registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_enter");
 registerHook("INTERACT", "lounge_music1", 143, "survival3", 19488.0, 83.0, -20780.0);
 registerHook("INTERACT", "lounge_music2", 143, "survival3", 19488.0, 83.0, -20776.0);
+
+------------------------------------
+-----Lounge Security System---------
+------------------------------------
+
+local lounge1_strikeLocation1 = Location:new("survival3", 19488, 85, -20796);
+local lounge2_strikeLocation2 = Location:new("survival3", 19488, 85, -20787);
+		
+function kill_ai(data)
+	if data.player == "PapaPetes" then
+		local player = Player:new(data.player);
+		dog:speak( player.name .. " has broken into the lounge, exterminating. ");
+		lounge1_strikeLocation1:lightningStrike();
+                lounge2_strikeLocation2:lightningStrike();
+                player:kill();
+	end
+end
+				
+registerHook("REGION_ENTER", "kill_ai", "survival3-lounge_leave");	
 		
 -------------------------
 -----Lounge Fire---------
