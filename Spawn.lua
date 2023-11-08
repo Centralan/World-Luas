@@ -132,6 +132,8 @@ registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
 		
 local loungeE = Location:new(world, 19491.0, 87.0, -20779.0);
 local lounge1 = Location:new(world, 19490.0, 84.0, -20778.0);
+local loungeTP = Location:new(world, 19476.300, 86.0, -20801.300);
+local loungeTP2 = Location:new(world, 19601.621, 138.0, -20790.469);
 local lounge1_strikeLocation1 = Location:new("survival3", 19488, 85, -20796);
 local lounge2_strikeLocation2 = Location:new("survival3", 19488, 85, -20787);
 
@@ -162,7 +164,16 @@ function lounge_welcome(data)
         loungeE:playSound('ITEM_BOTTLE_FILL_DRAGONBREATH', 1, 1);
 end
 
+function lounge_tp1(data)
+        local player = Player:new(data["player"]);
+        player:teleport(loungeTP);
+end
 
+function lounge_tp2(data)
+        local player = Player:new(data["player"]);
+        player:teleport(loungeTP2);
+end
+		
 function lounge_music1(data)
         local player = Player:new(data.player);
         if not  catclubPlayers[player.name] then
@@ -186,6 +197,8 @@ registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_enter");
 registerHook("REGION_ENTER", "lounge_check", "survival3-lounge_leave");
 registerHook("INTERACT", "lounge_music1", 143, "survival3", 19488.0, 83.0, -20780.0);
 registerHook("INTERACT", "lounge_music2", 143, "survival3", 19488.0, 83.0, -20776.0);
+registerHook("INTERACT", "lounge_tp1", 77, "survival3", 19480.0, 89.0, -20801.0);
+registerHook("INTERACT", "lounge_tp2", 143, "survival3", 19487.0, 88.0, -20786.0);
 		
 -------------------------
 -----Lounge Fire---------
