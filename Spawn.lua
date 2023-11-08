@@ -147,8 +147,8 @@ function catclub_reset()
 end
 
 function lounge_check(data)
-        if data.player == "Centralan" or data.player == "Zozael" or data.player == "RainbowDeborah" or data.player == "docpify" or data.player == "Kruithne" or data.player == "Branterson" or data.player == "TracerON" or data.player == "Willopillo" or data.player == "Max8abug" then
-          local player = Player:new(data.player);
+        local player = Player:new(data.player);
+        if player:hasPermission("runsafe.warp.use.lounge") then
         else
            local player = Player:new(data.player);
                 dog:speak( player.name .. " has broken into the lounge, exterminating. ");
