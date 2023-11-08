@@ -144,11 +144,9 @@ function catclub_reset()
         catclubResetTimerRunning = false;
 end
 
-function lounge_welcome(data)
+function lounge_check(data)
         if data.player == "Centralan" or data.player == "Zozael" or data.player == "RainbowDeborah" or data.player == "docpify" or data.player == "Kruithne" or data.player == "Branterson" or data.player == "TracerON" or data.player == "Willopillo" or data.player == "Max8abug" then
           local player = Player:new(data.player);
-                player:sendMessage( "&5The lounge reacts to you.");
-                loungeE:playSound('ITEM_BOTTLE_FILL_DRAGONBREATH', 1, 1);
         else
            local player = Player:new(data.player);
                 dog:speak( player.name .. " has broken into the lounge, exterminating. ");
@@ -157,6 +155,13 @@ function lounge_welcome(data)
                 player:kill();
 end
 end
+
+function lounge_welcome(data)
+        local player = Player:new(data["player"]);
+        player:sendMessage( "&5The lounge reacts to you.");
+        loungeE:playSound('ITEM_BOTTLE_FILL_DRAGONBREATH', 1, 1);
+end
+
 
 function lounge_music1(data)
         local player = Player:new(data.player);
@@ -177,7 +182,8 @@ if not catclubResetTimerRunning then
         end
 end
 
-registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_leave");
+registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_enter");
+registerHook("REGION_ENTER", "lounge_check", "survival3-lounge_leave");
 registerHook("INTERACT", "lounge_music1", 143, "survival3", 19488.0, 83.0, -20780.0);
 registerHook("INTERACT", "lounge_music2", 143, "survival3", 19488.0, 83.0, -20776.0);
 		
