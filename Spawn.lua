@@ -137,7 +137,6 @@ registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
 		
 local loungeE = Location:new(world, 19491.0, 87.0, -20779.0);
 local lounge1 = Location:new(world, 19490.0, 84.0, -20778.0);
-local loungeTP = Location:new(world, 19476.300, 86.0, -20801.300);
 local loungeTP2 = Location:new(world, 19601.621, 138.0, -20790.469);
 local lounge1_strikeLocation1 = Location:new("survival3", 19488, 85, -20796);
 local lounge2_strikeLocation2 = Location:new("survival3", 19488, 85, -20787);
@@ -164,14 +163,9 @@ end
 end
 
 function lounge_welcome(data)
-        local player = Player:new(data["player"]);
+        local player = Player:new(data.player);
         player:sendMessage( "&5The lounge reacts to you.");
         loungeE:playSound('ITEM_BOTTLE_FILL_DRAGONBREATH', 1, 1);
-end
-
-function lounge_tp1(data)
-        local player = Player:new(data["player"]);
-        player:teleport(loungeTP);
 end
 
 function lounge_tp2(data)
@@ -198,11 +192,10 @@ if not catclubResetTimerRunning then
         end
 end
 
-registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_enter");
-registerHook("REGION_ENTER", "lounge_check", "survival3-lounge_leave");
+registerHook("REGION_ENTER", "lounge_welcome", "survival3-lounge_welcome");
+registerHook("REGION_ENTER", "lounge_check", "survival3-lounge_kill");
 registerHook("INTERACT", "lounge_music1", 143, "survival3", 19488.0, 83.0, -20780.0);
 registerHook("INTERACT", "lounge_music2", 143, "survival3", 19488.0, 83.0, -20776.0);
-registerHook("INTERACT", "lounge_tp1", 77, "survival3", 19480.0, 89.0, -20801.0);
 registerHook("INTERACT", "lounge_tp2", 143, "survival3", 19487.0, 88.0, -20786.0);
 		
 -------------------------
@@ -237,23 +230,24 @@ function lounge_enter(data)
 end
 
 function lounge_leave()
+	local player = Player:new(data.player);
+	if player:hasPermission("runsafe.warp.use.lounge") then
         for index, key in ipairs(fireblocks) do
                 key:setBlock(0, firecurrent);
         end
 end
 
 function lounge_fire()
+	local player = Player:new(data.player);
+	if player:hasPermission("runsafe.warp.use.lounge") then
         for index, key in ipairs(fireblocks) do
                 key:setBlock(51, firecurrent);
         end
 end
 
 
-registerHook("REGION_ENTER", "lounge_fire", "survival3-lounge_enter");
-registerHook("REGION_ENTER", "lounge_fire", "survival3-lounge_leave");
-registerHook("REGION_ENTER", "lounge_fire", "survival3-lounge_lights2");
-registerHook("REGION_LEAVE", "lounge_leave", "survival3-lounge_leave");
-registerHook("REGION_LEAVE", "lounge_leave", "survival3-lounge_leave2");
+registerHook("REGION_ENTER", "lounge_fire", "survival3-lounge_lights");
+registerHook("REGION_LEAVE", "lounge_leave", "survival3-lounge_lights");
 
 -------------------------
 -----Lounge Redstone---------
@@ -313,44 +307,23 @@ function lounge_enter2(data)
 end
 
 function lounge_leave2()
+	local player = Player:new(data.player);
+	if player:hasPermission("runsafe.warp.use.lounge") then
         for index, key in ipairs(redblocks) do
                 key:setBlock(123, redcurrent);
         end
 end
 
 function lounge_redstone()
+	local player = Player:new(data.player);
+	if player:hasPermission("runsafe.warp.use.lounge") then
         for index, key in ipairs(redblocks) do
                 key:setBlock(169, redcurrent);
         end
 end
 
 registerHook("REGION_ENTER", "lounge_redstone", "survival3-lounge_lights");
-registerHook("REGION_ENTER", "lounge_redstone", "survival3-lounge_leave");
-registerHook("REGION_ENTER", "lounge_redstone", "survival3-lounge_lights2");
-registerHook("REGION_LEAVE", "lounge_leave2", "survival3-lounge_leave");
-registerHook("REGION_LEAVE", "lounge_leave2", "survival3-lounge_leave2");
-
-----------------------
-------Treehouse--
-----------------------
-
-local function Mob(position, mobType)
-	local entity = Entity:new(position);
-	entity:spawn(mobType);
-	table.insert(entityList, entity);
-end
-
-local treehouse = Location:new(world, 19495.0, 96.0, -20846.4);
-local treehouse2 = Location:new(world, 19495.0, 98.0, -20846.4);
-
-function play_wait(data)
-        local p = Player:new(data["player"]);
-        treehouse:playSound('RECORD_WAIT', 1, 1);
-	Mob(treehouse2, "PARROT");
-end
-
-registerHook("REGION_ENTER", "play_wait", "survival3-parrot");
-
+registerHook("REGION_LEAVE", "lounge_leave2", "survival3-lounge_lights");
 
 -------------------
 ------Cheeves------
