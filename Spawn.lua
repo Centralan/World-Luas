@@ -120,8 +120,13 @@ registerHook("INTERACT", "stairs_mine", 143, "survival3", 19517, 69, -20769);
 ----------------------
 
 function s_mode(data)
-        local p = Player:new(data["player"]);
-        p:setMode("SURVIVAL");
+        local player = Player:new(data.player);
+        if player:hasPermission("runsafe.toybox.mode") then
+           player:sendMessage("&7Gamemode check ignored.");
+        else
+           local player = Player:new(data.player);
+                player:setMode("SURVIVAL");
+end
 end
 
 registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
