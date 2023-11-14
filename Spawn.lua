@@ -90,7 +90,7 @@ function service_button(data)
         end
 end
 
-registerHook("INTERACT", "service_button", 143, "survival3", 19474.0, 73.0, -20781);
+--registerHook("INTERACT", "service_button", 143, "survival3", 19474.0, 73.0, -20781);
 
 -------------------
 -----Sounds--------
