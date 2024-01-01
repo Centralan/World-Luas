@@ -36,3 +36,16 @@ end
 
 timer:startRepeating();
 timerClean:startRepeating();
+
+local nether = World:new("survival3_nether");
+local world = World:new("survival3");
+local netherroof = Location:new(world, 19503.0, 72.0, -20790.0);
+netherroof:setYaw(-90.6);
+netherroof:setPitch(-11.6);
+
+function nether_roof(data)
+             local player = Player:new(data.player);
+             player:teleport(netherroof);
+end
+
+registerHook("REGION_ENTER", "nether_roof", "survival3_nether-nether_roof");
