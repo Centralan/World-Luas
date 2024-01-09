@@ -131,6 +131,35 @@ end
 
 registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
 
+--------------------
+------auto anvil--
+----------------------
+
+local world = "survival3";
+local a1current = 1;
+local a1maxData = 1;
+local a1blocks = {
+        Location:new(world, 19487.0, 72.0, -20781.0),
+};
+
+function anvil_spawn(data)
+        if a1current == a1maxData then
+                a1current = 1;
+        else
+                a1current = a1current + 1;
+        end
+        anvil_spawn_set();
+end
+		
+function anvil_spawn_set()
+        for index, key in ipairs(a1blocks) do
+                key:setBlock(145, a1current);
+end
+end
+
+registerHook("REGION_ENTER", "anvil_spawn_set", "survival3-autoanvil");
+
+
 -------------------------
 -----Lounge---------
 -------------------------
