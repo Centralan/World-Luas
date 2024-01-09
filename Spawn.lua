@@ -411,7 +411,7 @@ registerHook("REGION_ENTER", "shop_secret2", "survival3-shop_secret_2");
 -----Free Gear-----
 -------------------
 
-local freegear = Location:new(world, 19540.0, 64.0, -20788.0);
+local freegear = Location:new(world, 19530.0, 64.0, -20805.0);
 
 local FreeGearChestPlayers = {};
 local FreeGearChestResetTimer = Timer:new("free_reset_chest", 200 * 600 * 50);
