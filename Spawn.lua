@@ -411,7 +411,7 @@ registerHook("REGION_ENTER", "shop_secret2", "survival3-shop_secret_2");
 -----Free Gear-----
 -------------------
 
-local freegear = Location:new(world, 19542.0, 64.0, -20797.0);
+local freegear = Location:new(world, 19540.0, 64.0, -20788.0);
 
 local FreeGearChestPlayers = {};
 local FreeGearChestResetTimer = Timer:new("free_reset_chest", 200 * 600 * 50);
@@ -431,7 +431,7 @@ function free_1(data)
                 freegear:cloneChestToPlayer(player.name);
                 player:closeInventory();
                 FreeGearChestPlayers[player.name] = true;
-		player:sendMessage("&c You're been placed on a cooldown for this gear, better not lose it.");
+		player:sendMessage("&c You have been placed on a cooldown for this gear, better not lose it.");
 
                 if not FreeGearChestResetTimerRunning then
                         FreeGearChestResetTimerRunning = true;
@@ -440,9 +440,20 @@ function free_1(data)
         end
 end
 
+registerHook("INTERACT", "free_1", 143, "survival3", 19537.0, 71.0, -20733.0);
+registerHook("INTERACT", "free_1", 143, "survival3", 19536.0, 71.0, -20733.0);
+registerHook("INTERACT", "free_1", 143, "survival3", 19535.0, 71.0, -20733.0);
+registerHook("INTERACT", "free_1", 143, "survival3", 19534.0, 71.0, -20733.0);
+registerHook("INTERACT", "free_1", 143, "survival3", 19533.0, 71.0, -20733.0);
+registerHook("INTERACT", "free_1", 143, "survival3", 19537.0, 71.0, -20849.0);
+registerHook("INTERACT", "free_1", 143, "survival3", 19536.0, 71.0, -20849.0);
+registerHook("INTERACT", "free_1", 143, "survival3", 19535.0, 71.0, -20849.0);
+registerHook("INTERACT", "free_1", 143, "survival3", 19534.0, 71.0, -20849.0);
+registerHook("INTERACT", "free_1", 143, "survival3", 19533.0, 71.0, -20849.0);
 
-registerHook("REGION_ENTER", "free_1", "survival3-freegear1")
-registerHook("REGION_ENTER", "free_1", "survival3-freegear2")
+--registerHook("REGION_ENTER", "free_1", "survival3-freegear1")
+--registerHook("REGION_ENTER", "free_1", "survival3-freegear2")
+
 		
 -------------------------------
 ---------Anvils---------------
