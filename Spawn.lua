@@ -14,106 +14,33 @@ function spawn_whisper(npc, msg, player)
 	p:sendMessage('&f&c' .. npc .. '&f' .. msg);
 end
 
------------------------------------------
-------------Chat Commands--------------
------------------------------------------
-
-local function hasPrefix(subject, prefix)
-	return string.sub(subject, 1, string.len(prefix)) == prefix;
-end
-
-local function splitPlayerName(message, len)
-	return string.sub(message, len, string.len(message));
-end
-
-function hol_admin_setstairs(data)
-	if data.player == "Centralan" or data.player == "Zozael" or data.player == "RainbowDeborah" then
-		local player = Player:new(data.player);
-		local message = data.message;
-		if hasPrefix(message, "#holset") then
-			local playerName = splitPlayerName(message, 16);
-			   for index, key in ipairs(holblocks) do
-                            key:setBlock(109, current);
-			end
-		end
-	end
-end
-
-function hol_admin_setair(data)
-	if data.player == "Centralan" or data.player == "Zozael" or data.player == "RainbowDeborah" then
-		local player = Player:new(data.player);
-		local message = data.message;
-		if hasPrefix(message, "#holair") then
-			local playerName = splitPlayerName(message, 16);
-			   for index, key in ipairs(holblocks) do
-                            key:setBlock(0, current);
-			end
-		end
-	end
-end
-
-registerHook("CHAT_MESSAGE", "hol_admin_setstairs", "survival3");
-registerHook("CHAT_MESSAGE", "hol_admin_setair", "survival3");
-
 ----------------------------------
 ----------Customer Service--------
 ----------------------------------
 
-local buttonPlayers = {};
-local buttonResetTimer = Timer:new("button_reset_chest", 20 * 60 * 5);
-local buttonResetTimerRunning = false;
-
-function helmet_reset_chest()
-	buttonPlayers = {};
-	buttonResetTimerRunning = false;
-end
-
-function shop_good(npc, msg, player)
-	player:sendMessage('&f&c' .. npc .. '&f' .. msg);
-end
-
-local dog = AI:new("DOG", "AI", "survival3");
-local market = Location:new(world, 19474.0, 73.0, -20781);
-
-function service_button(data)
-	local player = Player:new(data.player);
-	if not  buttonPlayers[player.name] then
-	dog:speak( player.name .. " needs support in the market.");
-	player:sendMessage("&aIf an Admin is available they will be here shortly.");
-	market:playSound('ENTITY_PLAYER_LEVELUP', 100, 2);
-	buttonPlayers[player.name] = true;
-		
-        if not buttonResetTimerRunning then
-                        buttonResetTimerRunning = true;
-                        buttonResetTimer:start();
-                end
-        end
-end
-
---registerHook("INTERACT", "service_button", 143, "survival3", 19474.0, 73.0, -20781);
-
--------------------
------Sounds--------
--------------------
-
-local stairs = Location:new(world, 19511.481, 72.0, -20795;
-local stairs2 = Location:new(world, 19516. 70, -20771;
-
 function stairs_spawn(data)
 	local p = Player:new(data["player"]);
-	p:sendMessage("&6A Staircase to the hall appears.");
+	player:sendTitle("", "&eThe customer is frequently &cwrong&e.");
 	stairs:playSound('ITEM_TOTEM_USE', 1, 0.1);
 end
 
-registerHook("REGION_ENTER", "stairs_spawn", "survival3-hol_door");
+registerHook("INTERACT", "service_button", 143, "survival3", 19475.0, 73.0, -20780.0);
 
-function stair_mine(data)
-	local p = Player:new(data["player"]);
-	p:sendMessage("&6A staircase opens nearby..");
-	stairs2:playSound('ENTITY_ILLUSION_ILLAGER_AMBIENT', 1, 1);
+--------------------------
+-------hol message--------
+--------------------------
+
+local stairs = Location:new(world, 19511.481, 72.0, -20795);
+local stairs2 = Location:new(world, 19516, 70, -20771);
+
+function hol_sound(data)
+	local player = Player:new(data.player);
+        player:sendTitle("", "&eA Staircase To The &6Hall &eAppears");
+	player:playSound('ITEM_TOTEM_USE', 1, 0.1);
 end
 
-registerHook("INTERACT", "stairs_mine", 143, "survival3", 19517, 69, -20769);
+registerHook("REGION_ENTER", "hol_sound", "survival3-hol_stairs");
+
 
 --------------------
 ------gamemode check--
