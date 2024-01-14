@@ -18,10 +18,10 @@ end
 ----------Customer Service--------
 ----------------------------------
 
-function stairs_spawn(data)
-	local p = Player:new(data["player"]);
+function customer_service(data)
+	local player = Player:new(data.player);
 	player:sendTitle("", "&eThe customer is frequently &cwrong&e.");
-	stairs:playSound('ITEM_TOTEM_USE', 1, 0.1);
+	stairs:playSound('ENTITY_CAT_HISS', 1, 0.1);
 end
 
 registerHook("INTERACT", "service_button", 143, "survival3", 19475.0, 73.0, -20780.0);
