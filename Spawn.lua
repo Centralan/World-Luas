@@ -14,6 +14,8 @@ function spawn_whisper(npc, msg, player)
 	p:sendMessage('&f&c' .. npc .. '&f' .. msg);
 end
 
+local dog = AI:new("DOG", "AI", "survival3");
+
 ----------------------------------
 ----------Customer Service--------
 ----------------------------------
@@ -25,6 +27,17 @@ function customer_service(data)
 end
 
 registerHook("INTERACT", "service_button", 143, "survival3", 19475.0, 73.0, -20780.0);
+
+----------------------------------
+----------Ban Service-------
+----------------------------------
+
+function ban_service(data)
+	local player = Player:new(data.player);
+	dog:speak("&6Loot &fhas been placed in the &cban chest &fin spawn.");
+end
+
+registerHook("BLOCK_GAINS_CURRENT", "ban_service", "survival3", 19510.0, 64.0, -20801.0);
 
 --------------------------
 -------hol message--------
