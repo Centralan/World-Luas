@@ -22,11 +22,27 @@ local dog = AI:new("DOG", "AI", "survival3");
 
 function customer_service(data)
 	local player = Player:new(data.player);
-	player:sendTitle("", "&eThe customer is frequently &cwrong&e.");
-	stairs:playSound('ENTITY_CAT_HISS', 1, 0.1);
+	player:sendTitle("", "&eThe customer is frequently &c&lwrong&e.");
+	player:playSound('ENTITY_ENDEREYE_DEATH', 1, 0.1);
 end
 
-registerHook("INTERACT", "service_button", 143, "survival3", 19475.0, 73.0, -20780.0);
+
+function moral_support(data)
+	local player = Player:new(data.player);
+	player:sendTitle("", "&eYou &cCan't &eDo It.");
+	player:playSound('ENTITY_VILLAGER_NO', 1, 1);
+end
+
+function tech_support(data)
+	local player = Player:new(data.player);
+	player:sendTitle("", "&4&l/kill");
+	player:playSound('ENTITY_LIGHTNING_IMPACT', 1, 1);
+end
+
+registerHook("INTERACT", "service_button", 77, "survival3", 19475.0, 73.0, -20780.0);
+registerHook("INTERACT", "moral_support", 77, "survival3", 19474.0, 73.0, -20785.0);
+registerHook("INTERACT", "tech_support", 77, "survival3", 19474.0, 73.0, -20775.0);
+
 
 ----------------------------------
 ----------Ban Service-------
