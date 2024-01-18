@@ -41,16 +41,25 @@ end
 
 function ghast_support(data)
 	local player = Player:new(data.player);
-	player:sendTitle("", "&eThe sound of &c&lghasts &eechos from the &4&lnether&e.");
-	EventEngine.player.addPotionEffect(player.name, 'BLINDNESS', 100, 2);
-	player:playSound('ENTITY_GHAST_AMBIENT', 1, 0.5);
+        player:sendTitle("", "&eA &c&lghast &ereachs for you across &4&ldimensions&e.");
+	EventEngine.player.addPotionEffect(player.name, 'BLINDNESS', 100, 4);
+	player:playSound('ENTITY_GHAST_WARN', 1, 0.5);
 	player:setHealth(2);
+        player:playSound('ENTITY_GHAST_SHOOT', 1, 0.5);
 end
 
-registerHook("INTERACT", "service_button", 77, "survival3", 19475.0, 73.0, -20780.0);
+function ghast_support2(data)
+	local player = Player:new(data.player);
+	player:setHealth(20);
+        player:sendTitle("", "&eThe &c&lghast &eshow restraint.");
+end
+
+
+registerHook("INTERACT", "customer_service", 77, "survival3", 19475.0, 73.0, -20780.0);
 registerHook("INTERACT", "moral_support", 77, "survival3", 19474.0, 73.0, -20785.0);
 registerHook("INTERACT", "tech_support", 77, "survival3", 19474.0, 73.0, -20775.0);
 registerHook("REGION_ENTER", "ghast_support", "survival3-centralan_easter");
+registerHook("REGION_LEAVE", "ghast_support2", "survival3-centralan_easter");
 
 ----------------------------------
 ----------Ban Service-------
