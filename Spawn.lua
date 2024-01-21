@@ -62,15 +62,17 @@ registerHook("REGION_ENTER", "ghast_support", "survival3-centralan_easter");
 registerHook("REGION_LEAVE", "ghast_support2", "survival3-centralan_easter");
 
 ----------------------------------
-----------Ban Service-------
+----------Stealth Bombers-------
 ----------------------------------
 
-function ban_service(data)
+local Stealth = Location:new(world, 19521.0, 246.0, -20786.0);
+
+function stealth_moosic(data)
 	local player = Player:new(data.player);
-	dog:speak("&6Loot &fhas been placed in the &cban chest &fin spawn.");
+	Stealth:playSound('RECORD_STAL', 2, 1);
 end
 
-registerHook("BLOCK_GAINS_CURRENT", "ban_service", "survival3", 19510.0, 64.0, -20801.0);
+registerHook("REGION_ENTER", "stealth_moosic", "survival3-stal");
 
 --------------------------
 -------hol message--------
