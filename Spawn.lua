@@ -61,19 +61,6 @@ registerHook("INTERACT", "tech_support", 77, "survival3", 19474.0, 73.0, -20775.
 registerHook("REGION_ENTER", "ghast_support", "survival3-centralan_easter");
 registerHook("REGION_LEAVE", "ghast_support2", "survival3-centralan_easter");
 
-----------------------------------
-----------Stealth Bombers-------
-----------------------------------
-
-local Stealth = Location:new(world, 19521.0, 246.0, -20786.0);
-
-function stealth_moosic(data)
-	local player = Player:new(data.player);
-	Stealth:playSound('RECORD_STAL', 2, 1);
-end
-
-registerHook("REGION_ENTER", "stealth_moosic", "survival3-stal");
-
 --------------------------
 -------hol message--------
 --------------------------
@@ -411,6 +398,23 @@ end
 registerHook("REGION_ENTER", "shop_secret1", "survival3-shop_secret_1");
 registerHook("REGION_ENTER", "shop_secret2", "survival3-shop_secret_2");
 
+----------------------------------
+---------   Moosic Store   -------
+----------------------------------
+
+local moosictp = Location:new(world, 19565.520, 16.0, -20790.0);
+moosictp:setYaw(90.4);
+moosictp:setPitch(-3.3);
+
+function moosic_enter(data)
+	local player = Player:new(data.player);
+	player:teleport(moosictp);
+	player:playSound('ENTITY_EVOCATION_ILLAGER_CAST_SPELL', 1, 0.5);				
+end
+
+registerHook("REGION_ENTER", "moosic_enter", "survival3-moosic_tp");
+			
+
 -------------------
 -----Free Gear-----
 -------------------
@@ -457,38 +461,6 @@ registerHook("INTERACT", "free_1", 143, "survival3", 19533.0, 71.0, -20849.0);
 
 --registerHook("REGION_ENTER", "free_1", "survival3-freegear1")
 --registerHook("REGION_ENTER", "free_1", "survival3-freegear2")
-
-		
--------------------------------
----------Anvils---------------
-------------------------------
-
-local world = "survival3";
-local current = 1;
-local maxData = 1;
-local blocks = {
-        Location:new(world, 19483.0. 72.0, -20773.0),
-        Location:new(world, 19477.0. 72.0, -20824.0),
-
-};
-
-function spawn_anvils(data)
-        if current == maxData then
-                current = 1;
-        else
-                current = current + 1;
-        end
-        spawn_setAnvils();
-end
-
-function spawn_setAnvils()
-        for index, key in ipairs(blocks) do
-                key:setBlock(145, current);
-        end
-end
-
-registerHook("REGION_ENTER", "spawn_anvils", "survival3-market1");
-registerHook("REGION_ENTER", "spawn_anvils", "survival3-market2");
 
 ------------------------------------------------------------
 --------------Portals by:mortenn----------------------------
