@@ -402,7 +402,7 @@ registerHook("REGION_ENTER", "shop_secret2", "survival3-shop_secret_2");
 ---------   Moosic Store   -------
 ----------------------------------
 
-local moosictp = Location:new(world, 19565.520, 16.0, -20790.0);
+local moosictp = Location:new(world, 19565.512, 16.0, -20790.517);
 moosictp:setYaw(90.4);
 moosictp:setPitch(-3.3);
 
@@ -412,8 +412,78 @@ function moosic_enter(data)
 	player:playSound('ENTITY_EVOCATION_ILLAGER_CAST_SPELL', 1, 0.5);				
 end
 
-registerHook("REGION_ENTER", "moosic_enter", "survival3-moosic_tp");
-			
+function moosic_11(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_11', 1, 1);				
+end	
+
+function moosic_13(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_13', 1, 1);				
+end	
+
+function moosic_blocks(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_BLOCKS', 1, 1);				
+end
+
+function moosic_cat(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_CAT', 1, 1);				
+end
+
+function moosic_chirp(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_CHIRP', 1, 1);				
+end
+
+function moosic_far(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_FAR', 1, 1);				
+end
+
+function moosic_mall(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_MALL', 1, 1);				
+end
+
+function moosic_mellohi(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_MELLOHI', 1, 1);				
+end
+
+function moosic_stal(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_STAL', 1, 1);				
+end
+
+function moosic_strad(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_STRAD', 1, 1);				
+end
+
+function moosic_wait(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_WAIT', 1, 1);				
+end
+
+function moosic_ward(data)
+	local player = Player:new(data.player);
+	player:playSound('RECORD_WARD', 1, 1);				
+end
+
+registerHook("INTERACT", "moosic_11", 143, "survival3", 19535.0, 15.0, -20785.0);
+registerHook("INTERACT", "moosic_13", 143, "survival3", 19535.0, 15.0, -20786.0);
+registerHook("INTERACT", "moosic_blocks", 143, "survival3", 19535.0, 15.0, -20787.0)
+registerHook("INTERACT", "moosic_cat", 143, "survival3", 19535.0, 15.0, -20788.0)
+registerHook("INTERACT", "moosic_chrip", 143, "survival3", 19535.0, 15.0, -20789.0)
+registerHook("INTERACT", "moosic_far", 143, "survival3", 19535.0, 15.0, -20790.0)
+registerHook("INTERACT", "moosic_mall", 143, "survival3", 19535.0, 15.0, -20792.0)
+registerHook("INTERACT", "moosic_mellohi", 143, "survival3", 19535.0, 15.0, -20793.0)
+registerHook("INTERACT", "moosic_stal", 143, "survival3", 19535.0, 15.0, -20794.0)
+registerHook("INTERACT", "moosic_strad", 143, "survival3", 19535.0, 15.0, -20795.0)
+registerHook("INTERACT", "moosic_wait", 143, "survival3", 19535.0, 15.0, -20796.0)
+registerHook("INTERACT", "moosic_ward", 143, "survival3", 19535.0, 15.0, -20797.0)
 
 -------------------
 -----Free Gear-----
