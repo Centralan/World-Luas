@@ -402,13 +402,23 @@ registerHook("REGION_ENTER", "shop_secret2", "survival3-shop_secret_2");
 ---------   Moosic Store   -------
 ----------------------------------
 
-local moosictp = Location:new(world, 19565.512, 16.0, -20790.517);
+local moosictp = Location:new(world, 19575.512, 16.0, -20790.517);
 moosictp:setYaw(90.4);
 moosictp:setPitch(-3.3);
+
+local moosicexit = Location:new(world, 19585.439, 69.0, -20739.540);
+moosicexit:setYaw(90.0);
+moosicexit:setPitch(-21.9);
 
 function moosic_enter(data)
 	local player = Player:new(data.player);
 	player:teleport(moosictp);
+	player:playSound('ENTITY_EVOCATION_ILLAGER_CAST_SPELL', 1, 0.5);				
+end
+
+function moosic_exit(data)
+	local player = Player:new(data.player);
+	player:teleport(moosicexit);
 	player:playSound('ENTITY_EVOCATION_ILLAGER_CAST_SPELL', 1, 0.5);				
 end
 
@@ -471,6 +481,9 @@ function moosic_ward(data)
 	local player = Player:new(data.player);
 	player:playSound('RECORD_WARD', 1, 1);				
 end
+				
+registerHook("REGION_ENTER", "moosic_enter", "survival3-moosic_tp");
+registerHook("REGION_ENTER", "moosic_exit", "survival3-moosic_tp2");
 
 registerHook("INTERACT", "moosic_11", 143, "survival3", 19535.0, 15.0, -20785.0);
 registerHook("INTERACT", "moosic_13", 143, "survival3", 19535.0, 15.0, -20786.0);
