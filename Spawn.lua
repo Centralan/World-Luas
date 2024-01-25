@@ -77,9 +77,9 @@ end
 registerHook("REGION_ENTER", "hol_sound", "survival3-hol_stairs");
 
 
---------------------
-------gamemode check--
-----------------------
+--------------------------------
+------gamemode check/messaging--
+--------------------------------
 
 function s_mode(data)
         local player = Player:new(data.player);
@@ -87,11 +87,38 @@ function s_mode(data)
            player:sendMessage("&7Gamemode check ignored.");
         else
            local player = Player:new(data.player);
-                player:setMode("SURVIVAL");
+                 player:setMode("SURVIVAL");
+                 player:sendMessage("&3>> &bEntering Spawn &3<<");
 end
 end
 
+function world_check(data)
+        local player = Player:new(data.player);
+        if player:hasPermission("runsafe.toybox.mode") then
+           player:sendMessage("&7Gamemode check ignored.");
+        else
+           local player = Player:new(data.player);
+                 player:setMode("SURVIVAL");
+end
+end
+
+
+function s_mode_leave(data)
+        local player = Player:new(data.player);
+        player:sendMessage("&3>> &bLeaving Spawn &3<<");
+end
+
+function old_spawn_warning(data)
+        local player = Player:new(data.player);
+        player:sendMessage("&4>> &cEntering PvP/Damage Enabled Zone &4<<");
+end
+
+
+registerHook("REGION_ENTER", "world_check", "survival3-dnd_exploit_fix_region");
 registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
+registerHook("REGION_LEAVE", "s_mode_leave", "survival3-spawn");
+registerHook("REGION_ENTER", "s_mode", "survival3-__global__");
+registerHook("REGION_ENTER", "old_spawn_warning", "survival3-survivalspawn");
 
 --------------------
 ------auto anvil--
