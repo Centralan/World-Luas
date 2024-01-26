@@ -76,6 +76,18 @@ end
 
 registerHook("REGION_ENTER", "hol_sound", "survival3-hol_stairs");
 
+--------------------------------
+------Tramps--
+--------------------------------
+
+function tramp_low(data)
+	local player = Player:new(data.player);
+	player:setVelocity(0, 9, 0);
+end
+
+
+registerHook("REGION_ENTER", "tramp_low", "survival3-tramp1");
+registerHook("REGION_ENTER", "tramp_low", "survival3-tramp2");
 
 --------------------------------
 ------gamemode check/messaging--
