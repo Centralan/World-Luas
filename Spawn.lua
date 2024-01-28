@@ -62,6 +62,23 @@ registerHook("REGION_ENTER", "ghast_support", "survival3-centralan_easter");
 registerHook("REGION_LEAVE", "ghast_support2", "survival3-centralan_easter");
 
 --------------------------
+-------spawn catch--------
+--------------------------
+
+local spawn_catch = Location:new(world, 19549.456, 72.0, -20790.600);
+spawn_catch:setYaw(90.2);
+spawn_catch:setPitch(0.4);
+
+function spawn_floor_catch(data)
+	local player = Player:new(data.player);
+        player:teleport(spawn_catch);
+        player:sendTitle("", "&4&k0&cNobody likes a nosy player :] &4&k0&c");
+	player:playSound('ENTITY_SHULKER_AMBIENT', 1, 0.1);
+end
+
+registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_catch");
+
+--------------------------
 -------hol message--------
 --------------------------
 
