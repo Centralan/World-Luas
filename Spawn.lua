@@ -90,6 +90,13 @@ registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_catch7");
 registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_catch8");
 registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_catch9");
 registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_catch10");
+registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_catch11");
+registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_prison1");
+registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_prison2");
+registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_prison3");
+registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_prison4");
+registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_prison5");
+registerHook("REGION_ENTER", "spawn_floor_catch", "survival3-spawn_prison6");
 
 
 --------------------------
