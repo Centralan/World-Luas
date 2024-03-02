@@ -4,9 +4,9 @@ local soundblock = Location:new(world, 0, 0, 0);
 
 -- PaperName,Effect,speed,amount,Height
 
---------------
---- EFFECTS ---
---------------
+-----------------------------------
+--- EFFECTS /  Suspicious Armour---
+-----------------------------------
 
 local effects = {
 	{"Molten Spewing", "LAVA", 0.1, 5, 2},
@@ -33,21 +33,18 @@ local effects = {
 	{"Hot Head", "LAVA", 0.1, 1.5, 1.8},
 	{"Hot Head", "FLAME", 0.05, 2, 0},
 	{"Emerald Rain", "CLOUD", 0.05, 20, 5},
-	{"Emerald Rain", "TOTEM", 0.05, 2, 5},
-	{"Emerald Rain", "HAPPY_VILLAGER", 50, 10, 5},
+	{"Emerald Rain", "TOTEM", 0.05, 20, 5},
 	{"Barrier", "BARRIER", 50, 10, 2.4},
-	{"Barrier", "BARRIER", 50, 10, 0},
+	{"Barrier", "BARRIER", 50, 10, 0}
 };
 
 function fireTick()
 	processPlayers({world:getPlayers()});
-        processPlayers({world2:getPlayers()});
+--        processPlayers({world2:getPlayers()});
         processPlayers1({world:getPlayers()});
         processPlayers2({world:getPlayers()});
         processPlayers3({world:getPlayers()});
         processPlayers4({world:getPlayers()});
-        processPlayersK({world:getPlayers()});
-
 end
 
 function processPlayers(players)
@@ -129,3 +126,89 @@ function processPlayers4(players)
 end
 
 registerHook("BLOCK_GAINS_CURRENT", "fireTick", "survival3", 19526.0, 64.0, -20787.0);
+
+-----------------------------------
+      --- EFFECTS Shop---
+-----------------------------------
+
+local MoltenSpewingE = Location:new(world, 19566.5, 39.0, -20779.5);
+local TouchOfEndE = Location:new(world, 19566.5, 38.5, -20784.5);
+local EmeraldCharmE = Location:new(world, 19567.5, 38.5, -20789.5);
+local MoltenTouchE = Location:new(world, 19566.5, 38.5, -20794.5);
+local OpalProjectionK = Location:new(world, 19582.5, 38.5, -20780.5);
+local SlimeSprayK = Location:new(world, 19582.5, 38.5, -20785.5);
+local RainCloudK1 = Location:new(world, 19582.5, 41.5, -20790.5);
+local RainCloudK2 = Location:new(world, 19582.5, 40.5, -20790.5);
+local EmeraldRainK1 = Location:new(world, 19582.5, 41.5, -20795.5);
+local EmeraldRainK2 = Location:new(world, 19582.5, 40.5, -20795.5);
+local EmeraldRainK3 = Location:new(world, 19582.5, 40.5, -20795.5);
+local MadMoosicE1 = Location:new(world, 19566.5, 40.5, -20803.5);
+local MadMoosicE2 = Location:new(world, 19566.5, 38.2, -20803.5);
+local LoveWinsE1 = Location:new(world, 19566.5, 40.5, -20808.5);
+local LoveWinsE2 = Location:new(world, 19566.5, 39.5, -20808.5);
+local MagicalTouchE1 = Location:new(world, 19566.5, 39.5, -20813.5);
+local MagicalTouchE2 = Location:new(world, 19566.5, 39.5, -20813.5);
+local MagicalTouchE3 = Location:new(world, 19566.5, 39.5, -20813.5)
+
+
+function MoltenSpewing(effect, speed, particles, amount)
+              MoltenSpewingE:playEffect('LAVA', 0.1, 5, 10)
+end
+
+function TouchOfEnd(effect, speed, particles, amount)
+              TouchOfEndE:playEffect('PORTAL', 1, 50, 10)
+end
+
+function EmeraldCharm(effect, speed, particles, amount)
+              EmeraldCharmE:playEffect('HAPPY_VILLAGER', 10, 30, 10)
+end
+
+function MoltenTouch(effect, speed, particles, amount)
+              MoltenTouchE:playEffect('FLAME', 0.05, 20, 10)
+end
+
+function OpalProjection(effect, speed, particles, amount)
+              OpalProjectionK:playEffect('FIREWORKS_SPARK', 0.05, 10, 10)
+end
+
+function SlimeSpray(effect, speed, particles, amount)
+              SlimeSprayK:playEffect('SLIME', 10, 100, 10)
+end
+
+function RainCloud(effect, speed, particles, amount)
+              RainCloudK1:playEffect('CLOUD', 0.05, 20, 10)
+              RainCloudK2:playEffect('SPLASH', 10, 100, 10)
+end
+
+function EmeraldRain(effect, speed, particles, amount)
+              EmeraldRainK1:playEffect('CLOUD', 0.05, 20, 10)
+              EmeraldRainK2:playEffect('TOTEM', 0.05, 20, 10)
+end
+
+function MadMoosic(effect, speed, particles, amount)
+              MadMoosicE1:playEffect('NOTE', 10, 1, 10)
+              MadMoosicE2:playEffect('FIREWORKS_SPARK', 0.05, 10, 10)
+end
+
+function LoveWins(effect, speed, particles, amount)
+              LoveWinsE1:playEffect('HEART', 2, 50, 10)
+              LoveWinsE2:playEffect('DAMAGE_INDICATOR', 1, 1, 10)
+end
+
+function MagicalTouch(effect, speed, particles, amount)
+              MagicalTouchE1:playEffect('ENCHANTMENT_TABLE', -1, 20, 10)
+              MagicalTouchE2:playEffect('PORTAL', -1, 20, 10)
+              MagicalTouchE3:playEffect('MAGIC_CRIT', 1, 1, 10)
+end
+
+registerHook("BLOCK_GAINS_CURRENT", "MoltenSpewing", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "TouchOfEnd", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "EmeraldCharm", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "MoltenTouch", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "OpalProjection", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "SlimeSpray", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "RainCloud", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "EmeraldRain", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "MadMoosic", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "LoveWins", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "MagicalTouch", "survival3", 19526.0, 64.0, -20787.0);
