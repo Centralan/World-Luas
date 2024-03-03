@@ -484,6 +484,23 @@ end
 registerHook("REGION_ENTER", "shop_secret1", "survival3-shop_secret_1");
 registerHook("REGION_ENTER", "shop_secret2", "survival3-shop_secret_2");
 
+local effecttp = Location:new(world, 19574.500, 38.0, -20819.500);
+effecttp:setYaw(-0.2);
+effecttp:setPitch(0.5);
+
+function effect_shop_e(data)
+	 local player = Player:new(data.player);
+	       if player:hasItemWithName("Â§6Voucher") then
+		  player:teleport(effecttp);
+		  player:sendTitle("", "&4&k0&6The Wizards Welcome You.&4&k0&c");
+	       else
+		  player:teleport(spawn_catch);
+		  player:sendTitle("", "&4&k0&cYou've yet to solve the mystery.&4&k0&c");
+	end
+end
+	    
+registerHook("REGION_ENTER", "effect_shop_e", "survival3-effect_shop_enter");
+
 ----------------------------------
 ---------   Moosic Store   -------
 ----------------------------------
