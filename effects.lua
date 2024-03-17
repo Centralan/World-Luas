@@ -45,6 +45,13 @@ local effects = {
 	{"Cursed Traveler", "TOWN_AURA", 0.80, 20, 2.0},
 	{"Cursed Traveler", "TOWN_AURA", 0.80, 20, 2.0},
 	{"Cursed Traveler", "TOWN_AURA", 0.80, 20, 2.0},
+	{"Test", "LARGE_SMOKE", 0.05, 20, 0},
+	{"Test", "LARGE_SMOKE", 0.05, 20, 1},
+	{"Test", "LARGE_SMOKE", 0.05, 20, 2},
+	{"Test", "EXPLODE", 0.05, 20, 0},
+	{"Test", "EXPLODE", 0.05, 20, 1},
+	{"Test", "EXPLODE", 0.05, 20, 2},
+
 };
 
 function fireTick()
@@ -54,6 +61,9 @@ function fireTick()
         processPlayers2({world:getPlayers()});
         processPlayers3({world:getPlayers()});
         processPlayers4({world:getPlayers()});
+        processPlayers5({world:getPlayers()});
+        processPlayers6({world:getPlayers()});
+
 end
 
 function processPlayers(players)
@@ -133,6 +143,38 @@ function processPlayers4(players)
 		end
 	end
 end
+
+local portalcompass = Location:new(world, -30866, 17, 34836);
+
+function processPlayers5(players)
+	for index, playerName in pairs(players) do
+			if playerName ~= nil then
+				local player = Player:new(playerName);
+				if player ~= nil and player:isOnline() then
+					if player:hasItemWithName("Â§5Suspicious Compass") then
+                                          local world, x, y, z = player:getLocation();
+                                          player:setCompassTarget(portalcompass);				
+				end
+			end
+		end
+	end
+end
+
+function processPlayers6(players)
+	for index, playerName in pairs(players) do
+			if playerName ~= nil then
+				local player = Player:new(playerName);
+				if player ~= nil and player:isOnline() then
+					if player:hasItemWithName("Â§aOddly Bright Torch") then
+                                          local world, x, y, z = player:getLocation();
+                                          EventEngine.player.addPotionEffect(player.name, 'NIGHT_VISION', 5, 60);				
+				end
+			end
+		end
+	end
+end
+
+
 
 registerHook("BLOCK_GAINS_CURRENT", "fireTick", "survival3", 19526.0, 64.0, -20787.0);
 
