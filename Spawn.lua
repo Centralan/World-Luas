@@ -177,6 +177,7 @@ end
 
 registerHook("REGION_ENTER", "s_mode", "survival3-spawn");
 registerHook("REGION_ENTER", "s_mode", "survival3-__global__");
+registerHook("REGION_ENTER", "s_mode", "survival3-newspawn");
 registerHook("REGION_ENTER", "world_check", "survival3-dnd_exploit_fix_region");
 registerHook("REGION_LEAVE", "spawn_leave2", "survival3-spawn1");
 registerHook("REGION_LEAVE", "spawn_leave2", "survival3-spawn2");
@@ -212,6 +213,31 @@ end
 end
 
 registerHook("REGION_ENTER", "anvil_spawn_set", "survival3-autoanvil");
+
+local world = "survival3";
+local a2current = 1;
+local a2maxData = 1;
+local a2blocks = {
+        Location:new(world, -12756.0, 63.0, -13011.0),
+};
+
+function anvil_spawn2(data)
+        if a2current == a2maxData then
+                a2current = 1;
+        else
+                a2current = a2current + 1;
+        end
+        anvil_spawn_set2();
+end
+		
+function anvil_spawn_set2()
+        for index, key in ipairs(a2blocks) do
+                key:setBlock(145, a2current);
+end
+end
+
+registerHook("REGION_ENTER", "anvil_spawn_set2", "survival3-auto_anvil2");
+
 
 -------------------------
 -------Lounge---------
