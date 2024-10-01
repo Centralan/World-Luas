@@ -526,6 +526,7 @@ function effect_shop_e(data)
 end
 	    
 registerHook("REGION_ENTER", "effect_shop_e", "survival3-effect_shop_enter");
+registerHook("REGION_ENTER", "effect_shop_e", "survival3-p_shop_2");
 
 ----------------------------------
 ---------   Moosic Store   -------
