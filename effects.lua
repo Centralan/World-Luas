@@ -176,7 +176,7 @@ end
 
 
 
-registerHook("BLOCK_GAINS_CURRENT", "fireTick", "survival3", 19526.0, 64.0, -20787.0);
+registerHook("BLOCK_GAINS_CURRENT", "fireTick", "survival3", -12781.0, 12.0, -12931.0);
 
 -----------------------------------
       --- Spawn Effects---
